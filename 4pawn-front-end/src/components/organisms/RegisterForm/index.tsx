@@ -4,17 +4,32 @@ import FormContainer from '@molecules/FormContainer/index';
 import UserInput from '@molecules/UserInput/index';
 import { useNavigate } from 'react-router-dom';
 
-const LoginForm: React.FC = () => {
+const RegisterForm: React.FC = () => {
   const navigate = useNavigate()
-  const login = () => navigate('/home');
   return(
     <FormContainer>
+      <UserInput
+        content='Nome Completo: '
+        htmlFor='nome-input'
+        type='text'
+        placeholder='Nome Completo'
+        formRegister='fullName'
+      />
+      <UserInput
+        content='Email: '
+        htmlFor='email-input'
+        type='text'
+        placeholder='Email'
+        formRegister='email'
+
+      />
       <UserInput
         content='Usuário: '
         htmlFor='usuário-input'
         type='text'
         placeholder='Usuário'
         formRegister='username'
+
       />
       <UserInput
         content='Senha: '
@@ -22,21 +37,16 @@ const LoginForm: React.FC = () => {
         type='password'
         placeholder='Senha'
         formRegister='password'
-      />
-      <Button
-        content='Entrar'
-        type='submit'
-        onClick={login}
-        className='btn btn-primary'
+
       />
       <Button
         content='Registrar'
-        type='button'
-        onClick={() => navigate('/register')}
+        type='submit'
+        onClick={() => navigate('/home')}
         className='btn btn-primary'
       />
     </FormContainer>
   );
 }
 
-export default LoginForm;
+export default RegisterForm;

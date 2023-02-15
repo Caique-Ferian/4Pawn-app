@@ -2,7 +2,7 @@ import React from 'react';
 import { IPropsInput } from './types';
 
 const Input: React.FC<IPropsInput> = ({
-  type, className, placeholder, formHook, formRegister,id, validation
+  type, className, placeholder, formHook, formRegister,id
 }: IPropsInput) => {
   return(
     <input 
@@ -10,7 +10,7 @@ const Input: React.FC<IPropsInput> = ({
       id={id}
       className = {className}
       placeholder = {placeholder}
-      {...formHook?.register(formRegister, validation)}
+      {...formHook?.register(formRegister)}
     />
   )
 }

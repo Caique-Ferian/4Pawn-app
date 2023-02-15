@@ -1,4 +1,4 @@
-import { RegisterOptions, UseFormReturn } from "react-hook-form";
+import { UseFormReturn } from "react-hook-form";
 
 export interface IPropsInput {
   type: string;
@@ -7,7 +7,6 @@ export interface IPropsInput {
   placeholder: string;
   formHook?: UseFormReturn<IFormInfos, object>;
   formRegister: keyof IFormInfos;
-  validation: RegisterOptions;
 }
 
 export interface IFormInfos {

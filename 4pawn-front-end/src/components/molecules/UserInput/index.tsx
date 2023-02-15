@@ -1,6 +1,6 @@
 import React from "react";
-import Label from "../../atoms/Label";
-import Input from "../../atoms/Input";
+import Label from "@atoms/Label";
+import Input from "@atoms/Input";
 import IPropsUserInput from "./types";
 
 const UserInput: React.FC<IPropsUserInput> = ({ 
@@ -10,13 +10,11 @@ const UserInput: React.FC<IPropsUserInput> = ({
   placeholder,
   content,
   htmlFor,
-  validation,
 }: IPropsUserInput) => {
   return(
     <Label className="label-input" content={content} htmlFor={htmlFor}>
       <Input
         formRegister={formRegister}
-        validation={validation}
         id={htmlFor}
         formHook={formHook}
         type={type as string}

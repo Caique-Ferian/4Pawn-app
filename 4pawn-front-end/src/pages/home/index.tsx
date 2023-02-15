@@ -1,10 +1,9 @@
 import React from 'react';
-
+import UserHeader from '@organisms/UserHeader';
+import './home.css'
 const HomePage: React.FunctionComponent = () => {
   return(
-    <div>
-     <h1>HOME</h1>
-    </div>
+    <UserHeader />
   );
 };
 export default HomePage;

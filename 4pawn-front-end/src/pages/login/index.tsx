@@ -1,5 +1,5 @@
 import React from 'react';
-import LoginForm from '../../components/organisms/LoginForm';
+import LoginForm from '@organisms/LoginForm';
 
 const LoginPage: React.FunctionComponent = () => {
 
