@@ -1,11 +1,12 @@
 import React from 'react';
 import RegisterForm from '@organisms/RegisterForm';
+import Container from '@atoms/Container/index';
 
 const RegisterPage: React.FunctionComponent = () => {
   return(
-    <div>
+    <Container className="register-page">
       <RegisterForm />
-    </div>
+    </Container>
   );
 };
 export default RegisterPage;

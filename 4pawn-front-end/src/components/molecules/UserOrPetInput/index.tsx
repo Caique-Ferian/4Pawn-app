@@ -1,16 +1,16 @@
 import React from "react";
 import Label from "@atoms/Label";
 import Input from "@atoms/Input";
-import IPropsUserInput from "./types";
+import IPropsUserOrPetInput from "./types";
 
-const UserInput: React.FC<IPropsUserInput> = ({ 
+const UserOrPetInput: React.FC<IPropsUserOrPetInput> = ({ 
   formRegister,
   formHook,
   type,
   placeholder,
   content,
   htmlFor,
-}: IPropsUserInput) => {
+}: IPropsUserOrPetInput) => {
   return(
     <Label className="label-input" content={content} htmlFor={htmlFor}>
       <Input
@@ -25,4 +25,4 @@ const UserInput: React.FC<IPropsUserInput> = ({
   );
 }
 
-export default UserInput;
+export default UserOrPetInput;

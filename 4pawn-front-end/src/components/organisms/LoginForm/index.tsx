@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@atoms/Button';
 import FormContainer from '@molecules/FormContainer/index';
-import UserInput from '@molecules/UserInput/index';
+import UserOrPetInput from '@molecules/UserOrPetInput/index';
 import { useNavigate } from 'react-router-dom';
 
 const LoginForm: React.FC = () => {
@@ -9,14 +9,14 @@ const LoginForm: React.FC = () => {
   const login = () => navigate('/home');
   return(
     <FormContainer>
-      <UserInput
+      <UserOrPetInput
         content='Usuário: '
         htmlFor='usuário-input'
         type='text'
         placeholder='Usuário'
         formRegister='username'
       />
-      <UserInput
+      <UserOrPetInput
         content='Senha: '
         htmlFor='senha-input'
         type='password'

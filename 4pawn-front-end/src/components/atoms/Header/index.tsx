@@ -2,12 +2,8 @@ import React from "react";
 import IPropsHeader from "./types";
 
 
-const Header: React.FC<IPropsHeader> = ({content, className}:IPropsHeader) => {
-  return(
-    <div className={className}>
-      <h1>{content}</h1>
-    </div>
-  );
+const Header: React.FC<IPropsHeader> = ({content}:IPropsHeader) => {
+  return(<h1>{content}</h1>);
 };
 
 

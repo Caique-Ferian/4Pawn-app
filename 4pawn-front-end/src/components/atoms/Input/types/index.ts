@@ -14,4 +14,9 @@ export interface IFormInfos {
   password: string;
   fullName: string;
   email: string;
+  petName: string;
+  petAge: number; 
+  petWeight: number;
+  petColor: string;
+  petImage: string;
 }

@@ -1,4 +1,3 @@
-// /https://stackoverflow.com/questions/57070052/create-react-app-typescript-3-5-path-alias
 {
   "compilerOptions": {
     "baseUrl": "./src",
