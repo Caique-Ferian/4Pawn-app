@@ -39,7 +39,7 @@ class UpdatePet {
                 color: hasPet.color,
             }, hasPet.id);
         }
-        if (age) {
+        if (adopted) {
             updatedPet = new pet_1.default({
                 name: hasPet.name,
                 age: hasPet.age,

@@ -46,4 +46,8 @@ export default class User {
   public set password(password: Password) {
     this.props.password = password;
   }
+
+  public get role(): string {
+    return this.props.role;
+  }
 }

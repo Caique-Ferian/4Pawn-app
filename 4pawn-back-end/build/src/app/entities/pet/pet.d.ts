@@ -14,4 +14,5 @@ export default class Pet {
     set weight(weight: number);
     get color(): string;
     set color(color: string);
+    get adopted(): boolean;
 }

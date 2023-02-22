@@ -33,6 +33,9 @@ class User {
     set password(password) {
         this.props.password = password;
     }
+    get role() {
+        return this.props.role;
+    }
 }
 exports.default = User;
 //# sourceMappingURL=user.js.map

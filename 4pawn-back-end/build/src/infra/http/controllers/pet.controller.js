@@ -9,26 +9,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppController = void 0;
+exports.PetController = void 0;
 const common_1 = require("@nestjs/common");
-const app_service_1 = require("./app.service");
-let AppController = class AppController {
-    constructor(appService) {
-        this.appService = appService;
+const create_pet_1 = require("../../../app/use-cases/pet/create-pet");
+const find_all_pets_1 = require("../../../app/use-cases/pet/find-all-pets");
+const update_pet_1 = require("../../../app/use-cases/pet/update-pet");
+let PetController = class PetController {
+    constructor(createPet, findAllPets, updatePet) {
+        this.createPet = createPet;
     }
-    getHello() {
-        return this.appService.getHello();
+    async hello() {
+        return 'NEW CONTROLLER';
     }
 };
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getHello", null);
-AppController = __decorate([
-    (0, common_1.Controller)(),
-    __metadata("design:paramtypes", [app_service_1.AppService])
-], AppController);
-exports.AppController = AppController;
-//# sourceMappingURL=app.controller.js.map
+    __metadata("design:returntype", Promise)
+], PetController.prototype, "hello", null);
+PetController = __decorate([
+    (0, common_1.Controller)('pets'),
+    __metadata("design:paramtypes", [create_pet_1.default,
+        find_all_pets_1.default,
+        update_pet_1.default])
+], PetController);
+exports.PetController = PetController;
+//# sourceMappingURL=pet.controller.js.map

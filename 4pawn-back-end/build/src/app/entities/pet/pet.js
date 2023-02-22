@@ -39,6 +39,9 @@ class Pet {
     set color(color) {
         this.props.color = color;
     }
+    get adopted() {
+        return this.props.adopted;
+    }
 }
 exports.default = Pet;
 //# sourceMappingURL=pet.js.map

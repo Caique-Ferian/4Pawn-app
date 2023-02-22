@@ -50,4 +50,8 @@ export default class Pet {
   public set color(color: string) {
     this.props.color = color;
   }
+
+  public get adopted(): boolean {
+    return this.props.adopted;
+  }
 }

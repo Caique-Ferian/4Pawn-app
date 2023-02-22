@@ -14,4 +14,5 @@ export default class User {
     set email(email: Email);
     get password(): Password;
     set password(password: Password);
+    get role(): string;
 }
