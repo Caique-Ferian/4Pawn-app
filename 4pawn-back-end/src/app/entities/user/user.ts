@@ -1,11 +1,18 @@
 import IPropsUser from './types';
 import Email from './email';
 import Password from './password';
+import { randomUUID } from 'crypto';
 
 export default class User {
   private props: IPropsUser;
-  constructor(props: IPropsUser, role?: string) {
+  private _id: string;
+  constructor(props: IPropsUser, id?: string, role?: string) {
     this.props = { ...props, role: role ?? 'user' };
+    this._id = id ?? randomUUID();
+  }
+
+  public get id(): string {
+    return this._id;
   }
 
   public get fullName(): string {

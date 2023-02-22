@@ -4,15 +4,13 @@ import IPropsPet from './types';
 export default class Pet {
   private props: IPropsPet;
   private _id: string;
-  constructor(props: IPropsPet, adopted?: boolean, id?: string) {
+  constructor(props: IPropsPet, id?: string, adopted?: boolean) {
     this.props = { ...props, adopted: adopted ?? false };
     this._id = id ?? randomUUID();
   }
-
   public get id(): string {
     return this._id;
   }
-
   public get name(): string {
     return this.props.name;
   }

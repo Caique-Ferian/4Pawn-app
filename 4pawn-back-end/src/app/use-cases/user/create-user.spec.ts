@@ -3,9 +3,9 @@ import InMemoryUserRepository from '@test/repositories/in-memory-user-repository
 import UserAlreadyExists from './error/userAlreadyExists';
 
 describe('Testing use-case Create User', () => {
+  const inMemoryUserRepository = new InMemoryUserRepository();
+  const createUser = new CreateUser(inMemoryUserRepository);
   it('should be able to create a user', async () => {
-    const inMemoryUserRepository = new InMemoryUserRepository();
-    const createUser = new CreateUser(inMemoryUserRepository);
     const { user } = await createUser.execute({
       fullName: 'John Lenon',
       username: 'john123',
@@ -16,14 +16,7 @@ describe('Testing use-case Create User', () => {
     expect(inMemoryUserRepository.users[0]).toEqual(user);
   });
   it('should not be able to create a user if his already exists in DB', async () => {
-    const inMemoryUserRepository = new InMemoryUserRepository();
     const createUser = new CreateUser(inMemoryUserRepository);
-    await createUser.execute({
-      fullName: 'John Lenon',
-      username: 'john123',
-      email: 'john_beatles@test.com',
-      password: '1234567s',
-    });
     expect(() =>
       createUser.execute({
         fullName: 'John Lemon',

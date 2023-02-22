@@ -1,4 +1,4 @@
-import User from '@entities/user/user';
+import User from '@app/entities/user/user';
 
 export interface CreateUserRequest {
   fullName: string;
@@ -7,15 +7,17 @@ export interface CreateUserRequest {
   email: string;
 }
 
-export interface CreateUserResponse {
-  user: User;
-}
-
 export interface LoginUserRequest {
   username: string;
   password: string;
 }
 
-export interface LoginUserResponse {
+export interface UserResponse {
   user: User;
+}
+
+export interface UpdateUserRequest {
+  username: string;
+  email?: string;
+  password?: string;
 }

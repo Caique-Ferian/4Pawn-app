@@ -1,7 +1,7 @@
 import Pet from '@app/entities/pet/pet';
 import PetRepository from '@app/repositories/pet-repository';
 
-export default class InMemoryUserRepository implements PetRepository {
+export default class InMemoryPetRepository implements PetRepository {
   public pets: Pet[] = [];
 
   public async create(pet: Pet): Promise<void> {
