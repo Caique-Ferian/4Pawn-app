@@ -17,7 +17,7 @@ DatabaseModule = __decorate([
     (0, common_1.Module)({
         imports: [users_module_1.UsersModule, pets_module_1.PetsModule],
         providers: [...database_provider_1.databaseProvider],
-        exports: [...database_provider_1.databaseProvider],
+        exports: [...database_provider_1.databaseProvider, users_module_1.UsersModule, pets_module_1.PetsModule],
     })
 ], DatabaseModule);
 exports.DatabaseModule = DatabaseModule;

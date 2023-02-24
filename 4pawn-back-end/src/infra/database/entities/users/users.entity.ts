@@ -15,7 +15,7 @@ export class Users extends Model<Users> {
   id: string;
 
   @AllowNull(false)
-  @Column(DataType.STRING)
+  @Column({ type: DataType.STRING, field: 'full_name' })
   fullName: string;
 
   @AllowNull(false)

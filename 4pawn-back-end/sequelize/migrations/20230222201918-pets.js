@@ -30,7 +30,7 @@ module.exports = {
         allowNull: false,
       },
       adopted: {
-        type: Sequelize.BOOL,
+        type: Sequelize.BOOLEAN,
         allowNull: false,
       },
     });

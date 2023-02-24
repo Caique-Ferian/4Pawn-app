@@ -6,6 +6,6 @@ import { PetsModule } from './entities/pets/pets.module';
 @Module({
   imports: [UsersModule, PetsModule],
   providers: [...databaseProvider],
-  exports: [...databaseProvider],
+  exports: [...databaseProvider, UsersModule, PetsModule],
 })
 export class DatabaseModule {}

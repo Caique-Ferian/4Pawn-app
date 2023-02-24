@@ -4,7 +4,7 @@ import Password from './password';
 export default class User {
     private props;
     private _id;
-    constructor(props: IPropsUser, id?: string, role?: string);
+    constructor(props: IPropsUser, id?: string);
     get id(): string;
     get fullName(): string;
     set fullName(fullName: string);

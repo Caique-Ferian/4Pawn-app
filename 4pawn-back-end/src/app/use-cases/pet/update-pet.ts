@@ -2,7 +2,9 @@ import PetRepository from '@app/repositories/pet-repository';
 import PetNotFound from './error/petNotFound';
 import { UpdatePetRequest, UpdatePetResponse } from './types';
 import Pet from '@app/entities/pet/pet';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export default class UpdatePet {
   constructor(private petRepository: PetRepository) {}
 

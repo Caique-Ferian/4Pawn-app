@@ -17,6 +17,8 @@ const update_pet_1 = require("../../../app/use-cases/pet/update-pet");
 let PetController = class PetController {
     constructor(createPet, findAllPets, updatePet) {
         this.createPet = createPet;
+        this.findAllPets = findAllPets;
+        this.updatePet = updatePet;
     }
     async hello() {
         return 'NEW CONTROLLER';

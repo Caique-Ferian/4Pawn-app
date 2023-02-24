@@ -20,7 +20,8 @@ class SequelizeUserMapper {
             username: user.username,
             email: new email_1.default(user.email),
             password: new password_1.default(user.password),
-        }, user.id, user.role);
+            role: user.role,
+        }, user.id);
     }
 }
 exports.default = SequelizeUserMapper;

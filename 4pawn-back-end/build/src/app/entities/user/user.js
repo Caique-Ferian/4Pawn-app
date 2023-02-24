@@ -2,8 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const crypto_1 = require("crypto");
 class User {
-    constructor(props, id, role) {
-        this.props = Object.assign(Object.assign({}, props), { role: role !== null && role !== void 0 ? role : 'user' });
+    constructor(props, id) {
+        var _a;
+        this.props = Object.assign(Object.assign({}, props), { role: (_a = props.role) !== null && _a !== void 0 ? _a : 'user' });
         this._id = id !== null && id !== void 0 ? id : (0, crypto_1.randomUUID)();
     }
     get id() {

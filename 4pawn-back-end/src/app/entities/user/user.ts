@@ -6,8 +6,8 @@ import { randomUUID } from 'crypto';
 export default class User {
   private props: IPropsUser;
   private _id: string;
-  constructor(props: IPropsUser, id?: string, role?: string) {
-    this.props = { ...props, role: role ?? 'user' };
+  constructor(props: IPropsUser, id?: string) {
+    this.props = { ...props, role: props.role ?? 'user' };
     this._id = id ?? randomUUID();
   }
 

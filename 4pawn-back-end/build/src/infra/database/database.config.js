@@ -4,7 +4,7 @@ exports.databaseConfig = void 0;
 exports.databaseConfig = {
     username: 'root',
     password: '123456',
-    database: 'db',
+    database: '4pawn_db',
     host: 'localhost',
     port: 3306,
     dialect: 'mysql',

@@ -7,8 +7,8 @@ import UpdatePet from '@app/use-cases/pet/update-pet';
 export class PetController {
   constructor(
     private createPet: CreatePet,
-    findAllPets: FindAllPets,
-    updatePet: UpdatePet,
+    private findAllPets: FindAllPets,
+    private updatePet: UpdatePet,
   ) {}
 
   @Get()

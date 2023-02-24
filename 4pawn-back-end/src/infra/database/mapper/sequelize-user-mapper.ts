@@ -22,9 +22,9 @@ export default class SequelizeUserMapper {
         username: user.username,
         email: new Email(user.email),
         password: new Password(user.password),
+        role: user.role,
       },
       user.id,
-      user.role,
     );
   }
 }

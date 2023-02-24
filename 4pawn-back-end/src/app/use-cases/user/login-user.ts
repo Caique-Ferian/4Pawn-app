@@ -1,7 +1,9 @@
 import UserRepository from '@app/repositories/user-repository';
 import { LoginUserRequest, UserResponse } from './types';
 import LoginUnsuccessful from './error/loginUnsuccessful';
+import { Injectable } from '@nestjs/common';
 
+@Injectable()
 export default class LoginUser {
   constructor(private userRepository: UserRepository) {}
 
