@@ -19,16 +19,16 @@ export class Pets extends Model<Pets> {
   name: string;
 
   @AllowNull(false)
-  @Column(DataType.INTEGER)
-  age: number;
+  @Column(DataType.DOUBLE)
+  ageInYears: number;
 
   @AllowNull(false)
   @Column(DataType.STRING)
   image: string;
 
   @AllowNull(false)
-  @Column(DataType.INTEGER)
-  weight: number;
+  @Column(DataType.DOUBLE)
+  weightInKg: number;
 
   @AllowNull(false)
   @Column(DataType.STRING)

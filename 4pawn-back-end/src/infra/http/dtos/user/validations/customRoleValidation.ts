@@ -9,6 +9,6 @@ export class CustomRoleValidation implements ValidatorConstraintInterface {
     return role === 'admin';
   }
   defaultMessage(): string {
-    return 'Role must be admin, but received $value';
+    return 'Role must be admin, but received $value.';
   }
 }

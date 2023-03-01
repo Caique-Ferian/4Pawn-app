@@ -12,10 +12,10 @@ export class CustomPasswordValidation implements ValidatorConstraintInterface {
   }
   defaultMessage(validationArguments: ValidationArguments): string {
     const { value } = validationArguments;
-    if (!value) return 'Password field must be filled';
+    if (!value) return 'Password field must be filled.';
     return (
       'Invalid password. Expected minimal 8 characters,' +
-      'contains letters and numbers'
+      'contains letters and numbers.'
     );
   }
 }

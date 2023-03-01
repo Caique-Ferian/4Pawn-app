@@ -13,16 +13,18 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      age: {
-        type: Sequelize.INTEGER,
+      ageInYears: {
+        type: Sequelize.DOUBLE,
+        field: 'age_in_years',
         allowNull: false,
       },
       image: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      weight: {
-        type: Sequelize.INTEGER,
+      weightInKg: {
+        type: Sequelize.DOUBLE,
+        field: 'weight_in_kg',
         allowNull: false,
       },
       color: {

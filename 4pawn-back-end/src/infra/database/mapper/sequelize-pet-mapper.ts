@@ -6,9 +6,9 @@ export default class SequelizePetMapper {
     return {
       id: pet.id,
       name: pet.name,
-      age: pet.age,
+      ageInYears: pet.ageInYears,
       image: pet.image,
-      weight: pet.weight,
+      weightInKg: pet.weightInKg,
       color: pet.color,
       adopted: pet.adopted,
     };
@@ -18,9 +18,9 @@ export default class SequelizePetMapper {
     return new Pet(
       {
         name: pet.name,
-        age: pet.age,
+        ageInYears: pet.ageInYears,
         image: pet.image,
-        weight: pet.weight,
+        weightInKg: pet.weightInKg,
         color: pet.color,
       },
       pet.id,

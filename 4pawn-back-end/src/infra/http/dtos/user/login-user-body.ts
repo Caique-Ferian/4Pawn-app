@@ -4,10 +4,10 @@ import { CustomPasswordValidation } from './validations/customPasswordValidation
 export default class LoginUserBody {
   @Length(3, 20, {
     message: (args: ValidationArguments) => {
-      if (!args.value) return 'Username field must be filled';
+      if (!args.value) return 'Username field must be filled.';
       return (
         `Username must be between ${args.constraints[0]}` +
-        ` and ${args.constraints[1]} characters, but actual is ${args.value}`
+        ` and ${args.constraints[1]} characters, but actual is ${args.value}.`
       );
     },
   })

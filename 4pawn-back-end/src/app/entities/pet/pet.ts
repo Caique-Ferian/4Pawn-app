@@ -4,8 +4,8 @@ import IPropsPet from './types';
 export default class Pet {
   private props: IPropsPet;
   private _id: string;
-  constructor(props: IPropsPet, id?: string, adopted?: boolean) {
-    this.props = { ...props, adopted: adopted ?? false };
+  constructor(props: IPropsPet, id?: string) {
+    this.props = { ...props, adopted: props.adopted ?? false };
     this._id = id ?? randomUUID();
   }
   public get id(): string {
@@ -19,12 +19,12 @@ export default class Pet {
     this.props.name = name;
   }
 
-  public get age(): number {
-    return this.props.age;
+  public get ageInYears(): number {
+    return this.props.ageInYears;
   }
 
-  public set age(age: number) {
-    this.props.age = age;
+  public set ageInYears(ageInYears: number) {
+    this.props.ageInYears = ageInYears;
   }
 
   public get image(): string {
@@ -35,12 +35,12 @@ export default class Pet {
     this.props.image = image;
   }
 
-  public get weight(): number {
-    return this.props.weight;
+  public get weightInKg(): number {
+    return this.props.weightInKg;
   }
 
-  public set weight(weight: number) {
-    this.props.weight = weight;
+  public set weightInKg(weight: number) {
+    this.props.weightInKg = weight;
   }
 
   public get color(): string {

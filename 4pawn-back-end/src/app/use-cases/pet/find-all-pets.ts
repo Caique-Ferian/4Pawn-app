@@ -8,6 +8,6 @@ export default class FindAllPets {
 
   public async execute(): Promise<FindAllPetsResponse> {
     const pets = await this.petRepository.findAllPets();
-    return { pets: pets };
+    return { pets };
   }
 }

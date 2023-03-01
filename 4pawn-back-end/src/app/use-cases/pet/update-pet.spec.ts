@@ -11,7 +11,7 @@ describe('Testing use-case Update Pet', () => {
   it('should be able to update a pet age with a existent pet', async () => {
     const { pet } = await updatePet.execute({
       id: inMemoryPetRepository.pets[0].id,
-      age: 2,
+      ageInYears: 2,
     });
     expect(inMemoryPetRepository.pets[0]).toEqual(pet);
   });
@@ -25,7 +25,7 @@ describe('Testing use-case Update Pet', () => {
   it('should be able to update a pet weight with a existent pet', async () => {
     const { pet } = await updatePet.execute({
       id: inMemoryPetRepository.pets[0].id,
-      weight: 4,
+      weightInKg: 4,
     });
     expect(inMemoryPetRepository.pets[0]).toEqual(pet);
   });
@@ -41,7 +41,7 @@ describe('Testing use-case Update Pet', () => {
     expect(() =>
       updatePet.execute({
         id: '12345s6788',
-        age: 2,
+        ageInYears: 2,
       }),
     ).rejects.toThrow(PetNotFound);
   });

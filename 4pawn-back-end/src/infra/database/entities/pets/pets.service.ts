@@ -11,14 +11,14 @@ export class PetsService implements PetRepository {
     @Inject(PETS_REPOSITORY) private petsRepository: typeof PetsSequelize,
   ) {}
   async create(pet: Pet): Promise<void> {
-    const { id, name, age, image, weight, color, adopted } =
+    const { id, name, ageInYears, image, weightInKg, color, adopted } =
       SequelizePetMapper.toSequelize(pet);
     await this.petsRepository.create<PetsSequelize>({
       id,
       name,
-      age,
+      ageInYears,
       image,
-      weight,
+      weightInKg,
       color,
       adopted,
     });

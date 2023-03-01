@@ -7,9 +7,9 @@ describe('Testing use-case Create Pet', () => {
     const createPet = new CreatePet(inMemoryPetRepository);
     const { pet } = await createPet.execute({
       name: 'Luna',
-      age: 1,
+      ageInYears: 1,
       image: 'fake-image-path',
-      weight: 2,
+      weightInKg: 2,
       color: 'black',
     });
     expect(inMemoryPetRepository.pets).toHaveLength(1);

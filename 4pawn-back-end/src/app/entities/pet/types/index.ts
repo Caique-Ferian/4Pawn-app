@@ -1,8 +1,8 @@
 export default interface IPropsPet {
   name: string;
-  age: number;
+  ageInYears: number;
   image: string;
-  weight: number;
+  weightInKg: number;
   color: string;
   adopted?: boolean;
 }

@@ -9,17 +9,17 @@ export default class UpdatePet {
   constructor(private petRepository: PetRepository) {}
 
   public async execute(request: UpdatePetRequest): Promise<UpdatePetResponse> {
-    const { id, age, image, weight, adopted } = request;
+    const { id, ageInYears, image, weightInKg, adopted } = request;
     const hasPet = await this.petRepository.findPet(id);
     let updatedPet: Pet;
     if (!hasPet) throw new PetNotFound();
-    if (age) {
+    if (ageInYears) {
       updatedPet = new Pet(
         {
           name: hasPet.name,
-          age,
+          ageInYears,
           image: hasPet.image,
-          weight: hasPet.weight,
+          weightInKg: hasPet.weightInKg,
           color: hasPet.color,
         },
         hasPet.id,
@@ -29,21 +29,21 @@ export default class UpdatePet {
       updatedPet = new Pet(
         {
           name: hasPet.name,
-          age: hasPet.age,
+          ageInYears: hasPet.ageInYears,
           image,
-          weight: hasPet.weight,
+          weightInKg: hasPet.weightInKg,
           color: hasPet.color,
         },
         hasPet.id,
       );
     }
-    if (weight) {
+    if (weightInKg) {
       updatedPet = new Pet(
         {
           name: hasPet.name,
-          age: hasPet.age,
+          ageInYears: hasPet.ageInYears,
           image: hasPet.image,
-          weight,
+          weightInKg: weightInKg,
           color: hasPet.color,
         },
         hasPet.id,
@@ -53,13 +53,13 @@ export default class UpdatePet {
       updatedPet = new Pet(
         {
           name: hasPet.name,
-          age: hasPet.age,
+          ageInYears: hasPet.ageInYears,
           image: hasPet.image,
-          weight: hasPet.weight,
+          weightInKg: hasPet.weightInKg,
           color: hasPet.color,
+          adopted,
         },
         hasPet.id,
-        adopted,
       );
     }
     await this.petRepository.save(updatedPet);
