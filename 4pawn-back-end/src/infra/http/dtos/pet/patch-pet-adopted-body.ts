@@ -1,6 +1,6 @@
 import { IsBoolean, IsUUID, ValidationArguments } from 'class-validator';
 
-export default class PatchPetAgeBody {
+export default class PatchPetAdoptedBody {
   @IsUUID('all', {
     message: (args: ValidationArguments) => {
       if (!args.value) return 'Id field must be filled.';
