@@ -16,9 +16,9 @@ let CustomPasswordValidation = class CustomPasswordValidation {
     defaultMessage(validationArguments) {
         const { value } = validationArguments;
         if (!value)
-            return 'Password field must be filled';
+            return 'Password field must be filled.';
         return ('Invalid password. Expected minimal 8 characters,' +
-            'contains letters and numbers');
+            'contains letters and numbers.');
     }
 };
 CustomPasswordValidation = __decorate([

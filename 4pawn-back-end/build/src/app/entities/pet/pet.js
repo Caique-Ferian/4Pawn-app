@@ -2,8 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const crypto_1 = require("crypto");
 class Pet {
-    constructor(props, id, adopted) {
-        this.props = Object.assign(Object.assign({}, props), { adopted: adopted !== null && adopted !== void 0 ? adopted : false });
+    constructor(props, id) {
+        var _a;
+        this.props = Object.assign(Object.assign({}, props), { adopted: (_a = props.adopted) !== null && _a !== void 0 ? _a : false });
         this._id = id !== null && id !== void 0 ? id : (0, crypto_1.randomUUID)();
     }
     get id() {
@@ -15,11 +16,11 @@ class Pet {
     set name(name) {
         this.props.name = name;
     }
-    get age() {
-        return this.props.age;
+    get ageInYears() {
+        return this.props.ageInYears;
     }
-    set age(age) {
-        this.props.age = age;
+    set ageInYears(ageInYears) {
+        this.props.ageInYears = ageInYears;
     }
     get image() {
         return this.props.image;
@@ -27,11 +28,11 @@ class Pet {
     set image(image) {
         this.props.image = image;
     }
-    get weight() {
-        return this.props.weight;
+    get weightInKg() {
+        return this.props.weightInKg;
     }
-    set weight(weight) {
-        this.props.weight = weight;
+    set weightInKg(weight) {
+        this.props.weightInKg = weight;
     }
     get color() {
         return this.props.color;

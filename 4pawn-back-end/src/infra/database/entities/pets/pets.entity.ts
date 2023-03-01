@@ -19,7 +19,7 @@ export class Pets extends Model<Pets> {
   name: string;
 
   @AllowNull(false)
-  @Column(DataType.DOUBLE)
+  @Column({ type: DataType.DOUBLE, field: 'age_in_years' })
   ageInYears: number;
 
   @AllowNull(false)
@@ -27,7 +27,7 @@ export class Pets extends Model<Pets> {
   image: string;
 
   @AllowNull(false)
-  @Column(DataType.DOUBLE)
+  @Column({ type: DataType.DOUBLE, field: 'weight_in_kg' })
   weightInKg: number;
 
   @AllowNull(false)

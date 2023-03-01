@@ -2,9 +2,9 @@ import { Model } from 'sequelize-typescript';
 export declare class Pets extends Model<Pets> {
     id: string;
     name: string;
-    age: number;
+    ageInYears: number;
     image: string;
-    weight: number;
+    weightInKg: number;
     color: string;
     adopted: boolean;
 }

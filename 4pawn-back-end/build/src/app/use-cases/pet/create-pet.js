@@ -17,8 +17,8 @@ let CreatePet = class CreatePet {
         this.petRepository = petRepository;
     }
     async execute(request) {
-        const { name, age, image, weight, color } = request;
-        const pet = new pet_1.default({ name, age, image, weight, color });
+        const { name, ageInYears, image, weightInKg, color } = request;
+        const pet = new pet_1.default({ name, ageInYears, image, weightInKg, color });
         await this.petRepository.create(pet);
         return { pet };
     }

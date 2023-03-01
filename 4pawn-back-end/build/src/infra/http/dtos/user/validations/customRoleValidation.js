@@ -13,7 +13,7 @@ let CustomRoleValidation = class CustomRoleValidation {
         return role === 'admin';
     }
     defaultMessage() {
-        return 'Role must be admin, but received $value';
+        return 'Role must be admin, but received $value.';
     }
 };
 CustomRoleValidation = __decorate([

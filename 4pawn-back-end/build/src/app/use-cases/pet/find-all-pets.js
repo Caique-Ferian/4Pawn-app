@@ -17,7 +17,7 @@ let FindAllPets = class FindAllPets {
     }
     async execute() {
         const pets = await this.petRepository.findAllPets();
-        return { pets: pets };
+        return { pets };
     }
 };
 FindAllPets = __decorate([

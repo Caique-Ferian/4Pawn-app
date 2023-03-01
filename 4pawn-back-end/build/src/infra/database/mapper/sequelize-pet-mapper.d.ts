@@ -4,9 +4,9 @@ export default class SequelizePetMapper {
     static toSequelize(pet: Pet): {
         id: string;
         name: string;
-        age: number;
+        ageInYears: number;
         image: string;
-        weight: number;
+        weightInKg: number;
         color: string;
         adopted: boolean;
     };

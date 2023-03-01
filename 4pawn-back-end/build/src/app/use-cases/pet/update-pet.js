@@ -18,46 +18,47 @@ let UpdatePet = class UpdatePet {
         this.petRepository = petRepository;
     }
     async execute(request) {
-        const { id, age, image, weight, adopted } = request;
+        const { id, ageInYears, image, weightInKg, adopted } = request;
         const hasPet = await this.petRepository.findPet(id);
         let updatedPet;
         if (!hasPet)
             throw new petNotFound_1.default();
-        if (age) {
+        if (ageInYears) {
             updatedPet = new pet_1.default({
                 name: hasPet.name,
-                age,
+                ageInYears,
                 image: hasPet.image,
-                weight: hasPet.weight,
+                weightInKg: hasPet.weightInKg,
                 color: hasPet.color,
             }, hasPet.id);
         }
         if (image) {
             updatedPet = new pet_1.default({
                 name: hasPet.name,
-                age: hasPet.age,
+                ageInYears: hasPet.ageInYears,
                 image,
-                weight: hasPet.weight,
+                weightInKg: hasPet.weightInKg,
                 color: hasPet.color,
             }, hasPet.id);
         }
-        if (weight) {
+        if (weightInKg) {
             updatedPet = new pet_1.default({
                 name: hasPet.name,
-                age: hasPet.age,
+                ageInYears: hasPet.ageInYears,
                 image: hasPet.image,
-                weight,
+                weightInKg: weightInKg,
                 color: hasPet.color,
             }, hasPet.id);
         }
         if (adopted) {
             updatedPet = new pet_1.default({
                 name: hasPet.name,
-                age: hasPet.age,
+                ageInYears: hasPet.ageInYears,
                 image: hasPet.image,
-                weight: hasPet.weight,
+                weightInKg: hasPet.weightInKg,
                 color: hasPet.color,
-            }, hasPet.id, adopted);
+                adopted,
+            }, hasPet.id);
         }
         await this.petRepository.save(updatedPet);
         return { pet: updatedPet };

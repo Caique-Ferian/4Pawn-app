@@ -30,7 +30,7 @@ export class PetsService implements PetRepository {
   }
 
   async findAllPets(): Promise<Pet[]> {
-    const allPets = await this.petsRepository.findAll();
+    const allPets = await this.petsRepository.findAll({ order: ['name'] });
     return allPets.map(SequelizePetMapper.toDomain);
   }
 

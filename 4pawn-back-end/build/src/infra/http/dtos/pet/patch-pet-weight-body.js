@@ -10,23 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const class_validator_1 = require("class-validator");
-const customPasswordValidation_1 = require("./validations/customPasswordValidation");
-class LoginUserBody {
+class PatchPetWeightBody {
 }
 __decorate([
-    (0, class_validator_1.Length)(3, 20, {
+    (0, class_validator_1.IsUUID)('all', {
         message: (args) => {
             if (!args.value)
-                return 'Username field must be filled.';
-            return (`Username must be between ${args.constraints[0]}` +
-                ` and ${args.constraints[1]} characters, but actual is ${args.value}.`);
+                return 'Id field must be filled.';
+            return `${args.value} is not a valid UUID.`;
         },
     }),
     __metadata("design:type", String)
-], LoginUserBody.prototype, "username", void 0);
+], PatchPetWeightBody.prototype, "id", void 0);
 __decorate([
-    (0, class_validator_1.Validate)(customPasswordValidation_1.CustomPasswordValidation),
-    __metadata("design:type", String)
-], LoginUserBody.prototype, "password", void 0);
-exports.default = LoginUserBody;
-//# sourceMappingURL=login-user-body.js.map
+    (0, class_validator_1.IsNumber)({}, {
+        message: (args) => {
+            if (!args.value)
+                return 'weightInKg field must be filled.';
+            return `${args.value} is not a valid number of weight.`;
+        },
+    }),
+    __metadata("design:type", Number)
+], PatchPetWeightBody.prototype, "weightInKg", void 0);
+exports.default = PatchPetWeightBody;
+//# sourceMappingURL=patch-pet-weight-body.js.map

@@ -10,23 +10,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const class_validator_1 = require("class-validator");
-const customPasswordValidation_1 = require("./validations/customPasswordValidation");
-class LoginUserBody {
+class PatchPetImageBody {
 }
 __decorate([
-    (0, class_validator_1.Length)(3, 20, {
+    (0, class_validator_1.IsUUID)('all', {
         message: (args) => {
             if (!args.value)
-                return 'Username field must be filled.';
-            return (`Username must be between ${args.constraints[0]}` +
-                ` and ${args.constraints[1]} characters, but actual is ${args.value}.`);
+                return 'Id field must be filled.';
+            return `${args.value} is not a valid UUID.`;
         },
     }),
     __metadata("design:type", String)
-], LoginUserBody.prototype, "username", void 0);
+], PatchPetImageBody.prototype, "id", void 0);
 __decorate([
-    (0, class_validator_1.Validate)(customPasswordValidation_1.CustomPasswordValidation),
+    (0, class_validator_1.IsNotEmpty)({
+        message: 'Image field must be filled.',
+    }),
     __metadata("design:type", String)
-], LoginUserBody.prototype, "password", void 0);
-exports.default = LoginUserBody;
-//# sourceMappingURL=login-user-body.js.map
+], PatchPetImageBody.prototype, "image", void 0);
+exports.default = PatchPetImageBody;
+//# sourceMappingURL=patch-pet-image-body.js.map

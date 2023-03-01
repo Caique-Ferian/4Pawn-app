@@ -1,9 +1,9 @@
 import Pet from '@app/entities/pet/pet';
 export interface CreatePetRequest {
     name: string;
-    age: number;
+    ageInYears: number;
     image: string;
-    weight: number;
+    weightInKg: number;
     color: string;
 }
 export interface CreatePetResponse {
@@ -14,9 +14,9 @@ export interface FindAllPetsResponse {
 }
 export interface UpdatePetRequest {
     id: string;
-    age?: number;
+    ageInYears?: number;
     image?: string;
-    weight?: number;
+    weightInKg?: number;
     adopted?: boolean;
 }
 export interface UpdatePetResponse {

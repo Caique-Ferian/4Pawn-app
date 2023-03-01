@@ -17,9 +17,9 @@ __decorate([
     (0, class_validator_1.Length)(3, 20, {
         message: (args) => {
             if (!args.value)
-                return 'Username field must be filled';
-            return (`Username must be between ${args.constraints[0]}` +
-                ` and ${args.constraints[1]} characters, but actual is ${args.value}`);
+                return 'Username field must be filled.';
+            return (`Username must be between ${args.constraints[0]}.` +
+                ` and ${args.constraints[1]} characters, but actual is ${args.value}.`);
         },
     }),
     __metadata("design:type", String)

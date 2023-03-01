@@ -21,13 +21,13 @@ let PetsService = class PetsService {
         this.petsRepository = petsRepository;
     }
     async create(pet) {
-        const { id, name, age, image, weight, color, adopted } = sequelize_pet_mapper_1.default.toSequelize(pet);
+        const { id, name, ageInYears, image, weightInKg, color, adopted } = sequelize_pet_mapper_1.default.toSequelize(pet);
         await this.petsRepository.create({
             id,
             name,
-            age,
+            ageInYears,
             image,
-            weight,
+            weightInKg,
             color,
             adopted,
         });
@@ -39,7 +39,7 @@ let PetsService = class PetsService {
         return sequelize_pet_mapper_1.default.toDomain(pet);
     }
     async findAllPets() {
-        const allPets = await this.petsRepository.findAll();
+        const allPets = await this.petsRepository.findAll({ order: ['name'] });
         return allPets.map(sequelize_pet_mapper_1.default.toDomain);
     }
     async save(pet) {

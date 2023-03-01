@@ -18,9 +18,9 @@ __decorate([
     (0, class_validator_1.Length)(9, 50, {
         message: (args) => {
             if (!args.value)
-                return 'FullName field must be filled';
+                return 'FullName field must be filled.';
             return (`FullName must be between ${args.constraints[0]}` +
-                ` and ${args.constraints[1]} characters, but actual is ${args.value}`);
+                ` and ${args.constraints[1]} characters, but actual is ${args.value}.`);
         },
     }),
     __metadata("design:type", String)
@@ -29,9 +29,9 @@ __decorate([
     (0, class_validator_1.Length)(3, 20, {
         message: (args) => {
             if (!args.value)
-                return 'Username field must be filled';
+                return 'Username field must be filled.';
             return (`Username must be between ${args.constraints[0]}` +
-                ` and ${args.constraints[1]} characters, but actual is ${args.value}`);
+                ` and ${args.constraints[1]} characters, but actual is ${args.value}.`);
         },
     }),
     __metadata("design:type", String)
@@ -40,8 +40,8 @@ __decorate([
     (0, class_validator_1.IsEmail)({}, {
         message: (args) => {
             if (!args.value)
-                return 'Email field must be filled';
-            return `${args.value} is not a valid email`;
+                return 'Email field must be filled.';
+            return `${args.value} is not a valid email.`;
         },
     }),
     __metadata("design:type", String)

@@ -6,9 +6,9 @@ class SequelizePetMapper {
         return {
             id: pet.id,
             name: pet.name,
-            age: pet.age,
+            ageInYears: pet.ageInYears,
             image: pet.image,
-            weight: pet.weight,
+            weightInKg: pet.weightInKg,
             color: pet.color,
             adopted: pet.adopted,
         };
@@ -16,11 +16,12 @@ class SequelizePetMapper {
     static toDomain(pet) {
         return new pet_1.default({
             name: pet.name,
-            age: pet.age,
+            ageInYears: pet.ageInYears,
             image: pet.image,
-            weight: pet.weight,
+            weightInKg: pet.weightInKg,
             color: pet.color,
-        }, pet.id, pet.adopted);
+            adopted: pet.adopted,
+        }, pet.id);
     }
 }
 exports.default = SequelizePetMapper;

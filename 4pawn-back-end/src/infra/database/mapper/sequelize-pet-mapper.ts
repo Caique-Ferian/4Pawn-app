@@ -22,9 +22,9 @@ export default class SequelizePetMapper {
         image: pet.image,
         weightInKg: pet.weightInKg,
         color: pet.color,
+        adopted: pet.adopted,
       },
       pet.id,
-      pet.adopted,
     );
   }
 }

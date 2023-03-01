@@ -26,9 +26,9 @@ __decorate([
 ], Pets.prototype, "name", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.INTEGER),
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.DOUBLE, field: 'age_in_years' }),
     __metadata("design:type", Number)
-], Pets.prototype, "age", void 0);
+], Pets.prototype, "ageInYears", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING),
@@ -36,9 +36,9 @@ __decorate([
 ], Pets.prototype, "image", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
-    (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.INTEGER),
+    (0, sequelize_typescript_1.Column)({ type: sequelize_typescript_1.DataType.DOUBLE, field: 'weight_in_kg' }),
     __metadata("design:type", Number)
-], Pets.prototype, "weight", void 0);
+], Pets.prototype, "weightInKg", void 0);
 __decorate([
     (0, sequelize_typescript_1.AllowNull)(false),
     (0, sequelize_typescript_1.Column)(sequelize_typescript_1.DataType.STRING),
