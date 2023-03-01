@@ -6,6 +6,7 @@ import { PetHTTP } from '../view-module/types';
 import PetViewModule from '../view-module/pets-view-module';
 import CreatePetBody from '../dtos/pet/create-pet-body';
 import PatchPetAgeBody from '../dtos/pet/patch-pet-age-body';
+import PatchPetImageBody from '../dtos/pet/patch-pet-image-body';
 
 @Controller('pets')
 export class PetController {
@@ -38,6 +39,12 @@ export class PetController {
   async patchAge(@Body() body: PatchPetAgeBody): Promise<{ pet: PetHTTP }> {
     const { id, ageInYears } = body;
     const { pet } = await this.updatePet.execute({ id, ageInYears });
+    return { pet: PetViewModule.toHTTP(pet) };
+  }
+  @Patch('patch/image')
+  async patchImage(@Body() body: PatchPetImageBody): Promise<{ pet: PetHTTP }> {
+    const { id, image } = body;
+    const { pet } = await this.updatePet.execute({ id, image });
     return { pet: PetViewModule.toHTTP(pet) };
   }
 }
