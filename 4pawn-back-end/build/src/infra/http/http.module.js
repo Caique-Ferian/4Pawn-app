@@ -17,11 +17,12 @@ const update_user_1 = require("../../app/use-cases/user/update-user");
 const create_pet_1 = require("../../app/use-cases/pet/create-pet");
 const find_all_pets_1 = require("../../app/use-cases/pet/find-all-pets");
 const update_pet_1 = require("../../app/use-cases/pet/update-pet");
+const auth_module_1 = require("../auth/auth.module");
 let HttpModule = class HttpModule {
 };
 HttpModule = __decorate([
     (0, common_1.Module)({
-        imports: [database_module_1.DatabaseModule],
+        imports: [database_module_1.DatabaseModule, auth_module_1.AuthModule],
         controllers: [user_controller_1.UserController, pet_controller_1.PetController],
         providers: [
             create_user_1.default,

@@ -8,7 +8,8 @@ import SequelizeUserMapper from '@infra/database/mapper/sequelize-user-mapper';
 @Injectable()
 export class UsersService implements UserRepository {
   constructor(
-    @Inject(USERS_REPOSITORY) private usersRepository: typeof UsersSequelize,
+    @Inject(USERS_REPOSITORY)
+    private readonly usersRepository: typeof UsersSequelize,
   ) {}
 
   async create(user: User): Promise<void> {
@@ -31,10 +32,11 @@ export class UsersService implements UserRepository {
     return SequelizeUserMapper.toDomain(user);
   }
 
-  async login(username: string, password: string): Promise<User> {
+  async login(username: string): Promise<User | null> {
     const user = await this.usersRepository.findOne<UsersSequelize>({
-      where: { username, password },
+      where: { username },
     });
+    if (!user) return null;
     return SequelizeUserMapper.toDomain(user);
   }
   async save(user: User): Promise<void> {

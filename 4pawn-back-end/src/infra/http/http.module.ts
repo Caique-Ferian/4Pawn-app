@@ -8,9 +8,10 @@ import UpdateUser from '@app/use-cases/user/update-user';
 import CreatePet from '@app/use-cases/pet/create-pet';
 import FindAllPets from '@app/use-cases/pet/find-all-pets';
 import UpdatePet from '@app/use-cases/pet/update-pet';
+import { AuthModule } from '../auth/auth.module';
 
 @Module({
-  imports: [DatabaseModule],
+  imports: [DatabaseModule, AuthModule],
   controllers: [UserController, PetController],
   providers: [
     CreateUser,

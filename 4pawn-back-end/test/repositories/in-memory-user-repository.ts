@@ -12,10 +12,8 @@ export default class InMemoryUserRepository implements UserRepository {
     return this.users.find((e) => e.username === username);
   }
 
-  public async login(username: string, password: string): Promise<User | null> {
-    return this.users.find(
-      (e) => e.username === username && e.password.value === password,
-    );
+  public async login(username: string): Promise<User | null> {
+    return this.users.find((e) => e.username === username);
   }
 
   public async save(user: User): Promise<void> {

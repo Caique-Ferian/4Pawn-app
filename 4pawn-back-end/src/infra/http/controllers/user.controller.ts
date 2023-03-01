@@ -8,13 +8,20 @@ import {
   HttpStatus,
   Patch,
   Post,
+  Request,
+  UseGuards,
 } from '@nestjs/common';
 import CreateUserBody from '../dtos/user/create-user-body';
-import { UserHTTP } from '../view-module/types';
 import UserViewModule from '../view-module/user-view-module';
 import LoginUserBody from '../dtos/user/login-user-body';
 import PatchEmailBody from '../dtos/user/patch-email-body';
 import PatchPasswordBody from '../dtos/user/patch-password-body';
+import { AuthGuard } from '@nestjs/passport';
+import {
+  LoginUserRequest,
+  LoginUserResponse,
+  CreateOrUpdateUserResponse,
+} from './types';
 
 @Controller('users')
 export class UserController {
@@ -25,7 +32,9 @@ export class UserController {
   ) {}
 
   @Post()
-  async create(@Body() body: CreateUserBody): Promise<{ user: UserHTTP }> {
+  async create(
+    @Body() body: CreateUserBody,
+  ): Promise<CreateOrUpdateUserResponse> {
     try {
       const { fullName, username, email, password, role } = body;
       const { user } = await this.createUser.execute({
@@ -47,26 +56,21 @@ export class UserController {
     }
   }
 
-  @Post('login')
-  async login(@Body() body: LoginUserBody): Promise<{ user: UserHTTP }> {
-    try {
-      const { username, password } = body;
-
-      const { user } = await this.loginUser.execute({ username, password });
-
-      return { user: UserViewModule.toHTTP(user) };
-    } catch (error) {
-      throw new HttpException(
-        {
-          status: HttpStatus.NOT_FOUND,
-          error: 'Username or password incorrect',
-        },
-        HttpStatus.NOT_FOUND,
-      );
-    }
+  @UseGuards(AuthGuard('local'))
+  @Post('auth/login')
+  async login(
+    @Body() body: LoginUserBody,
+    @Request() req: LoginUserRequest,
+  ): Promise<LoginUserResponse> {
+    const { username, password } = body;
+    const { token } = req.user;
+    await this.loginUser.execute({ username, password });
+    return { token };
   }
   @Patch('patch/email')
-  async patchEmail(@Body() body: PatchEmailBody): Promise<{ user: UserHTTP }> {
+  async patchEmail(
+    @Body() body: PatchEmailBody,
+  ): Promise<CreateOrUpdateUserResponse> {
     try {
       const { username, email } = body;
       const { user } = await this.updateUser.execute({ username, email });
@@ -84,7 +88,7 @@ export class UserController {
   @Patch('patch/password')
   async patchPassword(
     @Body() body: PatchPasswordBody,
-  ): Promise<{ user: UserHTTP }> {
+  ): Promise<CreateOrUpdateUserResponse> {
     try {
       const { username, password } = body;
       const { user } = await this.updateUser.execute({ username, password });

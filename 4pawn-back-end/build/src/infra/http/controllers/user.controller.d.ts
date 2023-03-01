@@ -14,8 +14,8 @@ export declare class UserController {
     create(body: CreateUserBody): Promise<{
         user: UserHTTP;
     }>;
-    login(body: LoginUserBody): Promise<{
-        user: UserHTTP;
+    login(body: LoginUserBody, req: any): Promise<{
+        token: string;
     }>;
     patchEmail(body: PatchEmailBody): Promise<{
         user: UserHTTP;

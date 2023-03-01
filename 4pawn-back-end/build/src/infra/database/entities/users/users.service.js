@@ -39,10 +39,12 @@ let UsersService = class UsersService {
             return null;
         return sequelize_user_mapper_1.default.toDomain(user);
     }
-    async login(username, password) {
+    async login(username) {
         const user = await this.usersRepository.findOne({
-            where: { username, password },
+            where: { username },
         });
+        if (!user)
+            return null;
         return sequelize_user_mapper_1.default.toDomain(user);
     }
     async save(user) {

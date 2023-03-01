@@ -6,9 +6,9 @@ type Override = Partial<IPropsPet>;
 export default function makePet(override: Override = {}) {
   return new Pet({
     name: 'Luna',
-    age: 1,
+    ageInYears: 1,
     image: 'fake-image-path',
-    weight: 2,
+    weightInKg: 2,
     color: 'black',
     ...override,
   });

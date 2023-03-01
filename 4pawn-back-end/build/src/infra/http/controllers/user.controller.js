@@ -22,6 +22,7 @@ const user_view_module_1 = require("../view-module/user-view-module");
 const login_user_body_1 = require("../dtos/user/login-user-body");
 const patch_email_body_1 = require("../dtos/user/patch-email-body");
 const patch_password_body_1 = require("../dtos/user/patch-password-body");
+const passport_1 = require("@nestjs/passport");
 let UserController = class UserController {
     constructor(createUser, loginUser, updateUser) {
         this.createUser = createUser;
@@ -47,18 +48,10 @@ let UserController = class UserController {
             }, common_1.HttpStatus.CONFLICT);
         }
     }
-    async login(body) {
-        try {
-            const { username, password } = body;
-            const { user } = await this.loginUser.execute({ username, password });
-            return { user: user_view_module_1.default.toHTTP(user) };
-        }
-        catch (error) {
-            throw new common_1.HttpException({
-                status: common_1.HttpStatus.NOT_FOUND,
-                error: 'Username or password incorrect',
-            }, common_1.HttpStatus.NOT_FOUND);
-        }
+    async login(body, req) {
+        const { username, password } = body;
+        await this.loginUser.execute({ username, password });
+        return { token: req.user.token };
     }
     async patchEmail(body) {
         try {
@@ -95,10 +88,12 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "create", null);
 __decorate([
-    (0, common_1.Post)('login'),
+    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('local')),
+    (0, common_1.Post)('auth/login'),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Request)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [login_user_body_1.default]),
+    __metadata("design:paramtypes", [login_user_body_1.default, Object]),
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "login", null);
 __decorate([

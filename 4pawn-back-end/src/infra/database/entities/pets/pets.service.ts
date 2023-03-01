@@ -8,7 +8,8 @@ import SequelizePetMapper from '@infra/database/mapper/sequelize-pet-mapper';
 @Injectable()
 export class PetsService implements PetRepository {
   constructor(
-    @Inject(PETS_REPOSITORY) private petsRepository: typeof PetsSequelize,
+    @Inject(PETS_REPOSITORY)
+    private readonly petsRepository: typeof PetsSequelize,
   ) {}
   async create(pet: Pet): Promise<void> {
     const { id, name, ageInYears, image, weightInKg, color, adopted } =
