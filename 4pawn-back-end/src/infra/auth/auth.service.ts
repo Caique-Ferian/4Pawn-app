@@ -3,15 +3,19 @@ import { JwtService } from '@nestjs/jwt';
 import UserRepository from '@app/repositories/user-repository';
 import User from '@app/entities/user/user';
 import { AuthToken } from './types';
+import AuthRepository from './repository/auth-repository';
 
 @Injectable()
-export default class AuthService {
+export default class AuthService implements AuthRepository {
   constructor(
     private usersRepository: UserRepository,
     private jwtService: JwtService,
   ) {}
 
-  async validateUser(username: string, password: string): Promise<AuthToken> {
+  public async validateUser(
+    username: string,
+    password: string,
+  ): Promise<AuthToken> {
     const user = await this.usersRepository.hasUser(username);
     if (!user) {
       throw new HttpException(
@@ -34,15 +38,12 @@ export default class AuthService {
     );
   }
 
-  private async tokenGeneration(payload: User): Promise<AuthToken> {
+  public async tokenGeneration(payload: User): Promise<AuthToken> {
     return {
-      token: this.jwtService.sign(
-        {
-          username: payload.username,
-          role: payload.role,
-        },
-        { secret: 'jwtToken', expiresIn: '1d' },
-      ),
+      token: this.jwtService.sign({
+        username: payload.username,
+        role: payload.role,
+      }),
     };
   }
 }

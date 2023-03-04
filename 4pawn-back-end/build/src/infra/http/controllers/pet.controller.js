@@ -23,6 +23,7 @@ const patch_pet_age_body_1 = require("../dtos/pet/patch-pet-age-body");
 const patch_pet_image_body_1 = require("../dtos/pet/patch-pet-image-body");
 const patch_pet_weight_body_1 = require("../dtos/pet/patch-pet-weight-body");
 const patch_pet_adopted_body_1 = require("../dtos/pet/patch-pet-adopted-body");
+const jwt_auth_guard_1 = require("../../auth/passport/guards/jwt-auth.guard");
 let PetController = class PetController {
     constructor(createPet, findAllPets, updatePet) {
         this.createPet = createPet;
@@ -66,6 +67,7 @@ let PetController = class PetController {
     }
 };
 __decorate([
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -79,6 +81,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], PetController.prototype, "findAll", null);
 __decorate([
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Patch)('patch/age'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -86,6 +89,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], PetController.prototype, "patchAge", null);
 __decorate([
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Patch)('patch/image'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -93,6 +97,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], PetController.prototype, "patchImage", null);
 __decorate([
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Patch)('patch/weight'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -100,6 +105,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], PetController.prototype, "patchWeight", null);
 __decorate([
+    (0, common_1.UseGuards)(jwt_auth_guard_1.JwtAuthGuard),
     (0, common_1.Patch)('patch/adopted'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),

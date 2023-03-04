@@ -38,7 +38,7 @@ let AuthService = class AuthService {
             token: this.jwtService.sign({
                 username: payload.username,
                 role: payload.role,
-            }, { secret: 'jwtToken', expiresIn: '1d' }),
+            }),
         };
     }
 };

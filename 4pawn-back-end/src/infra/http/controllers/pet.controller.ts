@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Get, Patch, Post, UseGuards } from '@nestjs/common';
 import CreatePet from '@app/use-cases/pet/create-pet';
 import FindAllPets from '@app/use-cases/pet/find-all-pets';
 import UpdatePet from '@app/use-cases/pet/update-pet';
@@ -9,6 +9,7 @@ import PatchPetImageBody from '../dtos/pet/patch-pet-image-body';
 import PatchPetWeightBody from '../dtos/pet/patch-pet-weight-body';
 import PatchPetAdoptedBody from '../dtos/pet/patch-pet-adopted-body';
 import { CreateOrUpdatePetResponse, FindAllPetsResponse } from './types';
+import { JwtAuthGuard } from '@infra/auth/passport/guards/jwt-auth.guard';
 
 @Controller('pets')
 export class PetController {
@@ -18,6 +19,7 @@ export class PetController {
     private updatePet: UpdatePet,
   ) {}
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   async create(
     @Body() body: CreatePetBody,
@@ -39,6 +41,7 @@ export class PetController {
     return { pets: pets.map(PetViewModule.toHTTP) };
   }
 
+  @UseGuards(JwtAuthGuard)
   @Patch('patch/age')
   async patchAge(
     @Body() body: PatchPetAgeBody,
@@ -47,6 +50,8 @@ export class PetController {
     const { pet } = await this.updatePet.execute({ id, ageInYears });
     return { pet: PetViewModule.toHTTP(pet) };
   }
+
+  @UseGuards(JwtAuthGuard)
   @Patch('patch/image')
   async patchImage(
     @Body() body: PatchPetImageBody,
@@ -56,6 +61,7 @@ export class PetController {
     return { pet: PetViewModule.toHTTP(pet) };
   }
 
+  @UseGuards(JwtAuthGuard)
   @Patch('patch/weight')
   async patchWeight(
     @Body() body: PatchPetWeightBody,
@@ -65,6 +71,7 @@ export class PetController {
     return { pet: PetViewModule.toHTTP(pet) };
   }
 
+  @UseGuards(JwtAuthGuard)
   @Patch('patch/adopted')
   async patchAdopted(
     @Body() body: PatchPetAdoptedBody,

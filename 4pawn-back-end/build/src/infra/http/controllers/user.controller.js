@@ -22,7 +22,7 @@ const user_view_module_1 = require("../view-module/user-view-module");
 const login_user_body_1 = require("../dtos/user/login-user-body");
 const patch_email_body_1 = require("../dtos/user/patch-email-body");
 const patch_password_body_1 = require("../dtos/user/patch-password-body");
-const passport_1 = require("@nestjs/passport");
+const login_auth_guard_1 = require("../../auth/passport/guards/login-auth.guard");
 let UserController = class UserController {
     constructor(createUser, loginUser, updateUser) {
         this.createUser = createUser;
@@ -50,8 +50,9 @@ let UserController = class UserController {
     }
     async login(body, req) {
         const { username, password } = body;
+        const { token } = req.user;
         await this.loginUser.execute({ username, password });
-        return { token: req.user.token };
+        return { token };
     }
     async patchEmail(body) {
         try {
@@ -88,7 +89,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], UserController.prototype, "create", null);
 __decorate([
-    (0, common_1.UseGuards)((0, passport_1.AuthGuard)('local')),
+    (0, common_1.UseGuards)(login_auth_guard_1.LoginAuthGuard),
     (0, common_1.Post)('auth/login'),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Request)()),

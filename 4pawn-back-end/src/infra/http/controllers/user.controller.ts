@@ -16,12 +16,12 @@ import UserViewModule from '../view-module/user-view-module';
 import LoginUserBody from '../dtos/user/login-user-body';
 import PatchEmailBody from '../dtos/user/patch-email-body';
 import PatchPasswordBody from '../dtos/user/patch-password-body';
-import { AuthGuard } from '@nestjs/passport';
 import {
   LoginUserRequest,
   LoginUserResponse,
   CreateOrUpdateUserResponse,
 } from './types';
+import { LoginAuthGuard } from '@infra/auth/passport/guards/login-auth.guard';
 
 @Controller('users')
 export class UserController {
@@ -56,7 +56,7 @@ export class UserController {
     }
   }
 
-  @UseGuards(AuthGuard('local'))
+  @UseGuards(LoginAuthGuard)
   @Post('auth/login')
   async login(
     @Body() body: LoginUserBody,
