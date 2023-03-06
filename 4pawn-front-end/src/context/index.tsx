@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import AppContextType, { Error, Pets, User } from './types';
-import { requestPost, requestGet } from '@utils/request';
+import { requestPost, requestGet, setToken as tokenToApi } from '@utils/request';
 import { FormInfos } from '@atoms/Input/types';
 import { useNavigate } from 'react-router-dom';
 import errorHandler from '@utils/error';
@@ -18,6 +18,12 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
         const { token, role } = await requestPost(endpoint, data);
         setToken(token);
         setUser({username: data.username, role});
+        tokenToApi(token);
+        navigate('/home');
+      }
+      if(endpoint.includes('pets')) {
+        await requestPost(endpoint, data);
+        await get(endpoint);
         navigate('/home');
       }
     } catch(err: any){

@@ -20,12 +20,12 @@ const PetDetails: React.FC<PetDetailsProps> = (
         height="600px"
         alt={ name }
       />
-      <Paragraph content= {`Idade em ano(s): ${ ageInYears }`}/>
-      <Paragraph content= {`Peso em Kg(s): ${ weightInKg }`}/>
-      <Paragraph content= {`Raça/Cor: ${ color }`}/>
+      <Paragraph content= {`Age in year(s): ${ ageInYears }`}/>
+      <Paragraph content= {`Weight in Kg(s): ${ weightInKg }`}/>
+      <Paragraph content= {`Breed/Color: ${ color }`}/>
       <Container className="pet-details-buttons">
-        <Button type="button" content="Adotar" className="adopt-button"/>
-        <LinkButton content="Voltar" target="/home"/>
+        <Button type="button" content="Adopt" className="adopt-button"/>
+        <LinkButton content="Back" target="/home"/>
       </Container>
     </Container>
   );

@@ -13,30 +13,30 @@ const LoginForm: React.FC = () => {
   return(
     <FormContainer endpoint='users/auth/login'>
       <UserOrPetInput
-        content='Usuário: '
-        htmlFor='usuário-input'
+        content='Username: '
+        htmlFor='username-input'
         type='text'
-        placeholder='Usuário'
+        placeholder='Username'
         formRegister='username'
       />
       { errors.map(({ type, message } ,i) => type === 'username'
         && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
-        content='Senha: '
-        htmlFor='senha-input'
+        content='Password: '
+        htmlFor='password-input'
         type='password'
-        placeholder='Senha'
+        placeholder='Password'
         formRegister='password'
       />
       { errors.map(({ type, message } ,i) => type === 'password'
         && <Paragraph key={i} content={ message }/>) }
       <Button
-        content='Entrar'
+        content='Enter'
         type='submit'
         className='btn btn-primary'
       />
       <Button
-        content='Registrar'
+        content='Register'
         type='button'
         onClick={() => navigate('/register')}
         className='btn btn-primary'

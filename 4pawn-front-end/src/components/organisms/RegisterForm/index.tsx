@@ -11,10 +11,10 @@ const RegisterForm: React.FC = () => {
   return(
     <FormContainer endpoint='users/'>
       <UserOrPetInput
-        content='Nome Completo: '
-        htmlFor='nome-input'
+        content='Full Name: '
+        htmlFor='fullName-input'
         type='text'
-        placeholder='Nome Completo'
+        placeholder='Full Name'
         formRegister='fullName'
       />
       { errors.map(({ type,message }, i) => type === 'fullname'
@@ -30,27 +30,27 @@ const RegisterForm: React.FC = () => {
       { errors.map(({ type,message }, i) => type === 'email'
         && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
-        content='Usuário: '
-        htmlFor='usuário-input'
+        content='Username: '
+        htmlFor='username-input'
         type='text'
-        placeholder='Usuário'
+        placeholder='Username'
         formRegister='username'
 
       />
       { errors.map(({ type,message }, i) => type === 'username'
         && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
-        content='Senha: '
-        htmlFor='senha-input'
+        content='Password: '
+        htmlFor='password-input'
         type='password'
-        placeholder='Senha'
+        placeholder='Password'
         formRegister='password'
 
       />
       { errors.map(({ type,message }, i) => type === 'password'
         && <Paragraph key={i} content={ message }/>) }
       <Button
-        content='Registrar'
+        content='Register'
         type='submit'
         className='btn btn-primary'
       />

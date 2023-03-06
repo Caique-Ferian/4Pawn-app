@@ -12,7 +12,7 @@ const UserHeader: React.FC = () => {
     <Container className="user-header">
       <HeaderWithLogo content="4 Pawn"/>
       <Paragraph content={`Hello ${user.username}`}/>
-      <LinkButton content="Animais adotados" target="/home" />
+      <LinkButton content="Adopted animals" target="/home" />
       <LinkButton content="Logout" target='/'className="logout-button"/>
     </Container>
   );

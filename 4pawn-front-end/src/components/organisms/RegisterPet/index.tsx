@@ -1,53 +1,66 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from '@atoms/Button';
 import FormContainer from '@molecules/FormContainer/index';
 import UserOrPetInput from '@molecules/UserOrPetInput/index';
+import { AppContext } from '@context/index';
+import  AppContextType  from '@context/types';
+import Paragraph from '@atoms/Paragraph';
 
 const RegisterPet: React.FC = () => {
+  const { errors } = useContext(AppContext) as AppContextType;
   return(
-    <FormContainer endpoint=''>
+    <FormContainer endpoint='pets'>
       <UserOrPetInput
-        content='Nome do Pet: '
-        htmlFor='nome-input'
+        content='Pet Name: '
+        htmlFor='name-input'
         type='text'
-        placeholder='Nome do Pet'
+        placeholder='Pet Name'
         formRegister='name'
       />
+      { errors.map(({ type,message }, i) => type === 'name'
+        && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
-        content='Idade em anos: '
-        htmlFor='idade-input'
+        content='Age In years: '
+        htmlFor='age-input'
         type='number'
-        placeholder='Idade em anos'
+        placeholder='Age In years'
         formRegister='ageInYears'
       />
+      { errors.map(({ type,message }, i) => type === 'age'
+        && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
-        content='Peso em Kg: '
-        htmlFor='peso-input'
+        content='Weight in Kg: '
+        htmlFor='weight-input'
         type='number'
-        placeholder='Peso em Kg'
+        placeholder='Weight in Kg'
         formRegister='weightInKg'
 
       />
+      { errors.map(({ type,message }, i) => type === 'weight'
+        && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
-        content='Cor: '
-        htmlFor='cor-input'
+        content='Color: '
+        htmlFor='color-input'
         type='text'
-        placeholder='Cor'
+        placeholder='Color'
         formRegister='color'
 
       />
+      { errors.map(({ type,message }, i) => type === 'color'
+        && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
-        content='Imagem: '
-        htmlFor='imagem-input'
+        content='Image: '
+        htmlFor='image-input'
         type='text'
-        placeholder='Imagem'
+        placeholder='Image'
         formRegister='image'
 
       />
+      { errors.map(({ type,message }, i) => type === 'image'
+        && <Paragraph key={i} content={ message }/>) }
       <Button
-        content='Registrar'
+        content='Register'
         type='submit'
-        onClick={() => console.log('REGISTERED')}
         className='btn btn-primary'
       />
     </FormContainer>

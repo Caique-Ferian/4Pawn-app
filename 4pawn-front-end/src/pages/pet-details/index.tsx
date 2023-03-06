@@ -20,7 +20,6 @@ const PetDetailsPage: React.FunctionComponent = () => {
         color={ color }
         image={ image } 
       />
-
     </Container>
   );
 };
