@@ -1,3 +1,3 @@
-export default interface IPropsTitle {
+export default interface PropsTitle {
   content: string;
 }

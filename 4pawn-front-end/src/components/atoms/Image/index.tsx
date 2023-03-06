@@ -1,7 +1,7 @@
 import React from "react";
-import IPropsImage from './types/index';
+import PropsImage from './types/index';
 
-const Image: React.FC<IPropsImage> = ({src,width,height,alt}: IPropsImage) => {
+const Image: React.FC<PropsImage> = ({src,width,height,alt}: PropsImage) => {
   return(
     <div>
       <img 

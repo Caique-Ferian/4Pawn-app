@@ -1,8 +1,8 @@
 import React from "react";
-import IPropsContainer from "./types";
+import PropsContainer from "./types";
 
-const Container: React.FC<IPropsContainer> = (
-  { className, children }: IPropsContainer) => {
+const Container: React.FC<PropsContainer> = (
+  { className, children }: PropsContainer) => {
     return(
       <div className={className}>
         {children}

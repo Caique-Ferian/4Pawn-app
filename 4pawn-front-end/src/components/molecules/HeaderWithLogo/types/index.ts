@@ -1,3 +1,3 @@
-export default interface IPropsHeaderWithLogo {
+export default interface PropsHeaderWithLogo {
   content: string;
 }

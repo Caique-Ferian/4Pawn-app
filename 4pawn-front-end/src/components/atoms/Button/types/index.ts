@@ -1,4 +1,4 @@
-export default interface IPropsButton {
+export default interface PropsButton {
   content:string;
   onClick?: () => void;
   className: string;

@@ -1,16 +1,16 @@
 import React from "react";
 import Label from "@atoms/Label";
 import Input from "@atoms/Input";
-import IPropsUserOrPetInput from "./types";
+import PropsUserOrPetInput from "./types";
 
-const UserOrPetInput: React.FC<IPropsUserOrPetInput> = ({ 
+const UserOrPetInput: React.FC<PropsUserOrPetInput> = ({ 
   formRegister,
   formHook,
   type,
   placeholder,
   content,
   htmlFor,
-}: IPropsUserOrPetInput) => {
+}: PropsUserOrPetInput) => {
   return(
     <Label className="label-input" content={content} htmlFor={htmlFor}>
       <Input

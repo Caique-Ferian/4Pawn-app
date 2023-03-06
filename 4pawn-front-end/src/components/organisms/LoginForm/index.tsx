@@ -3,10 +3,11 @@ import Button from '@atoms/Button';
 import FormContainer from '@molecules/FormContainer/index';
 import UserOrPetInput from '@molecules/UserOrPetInput/index';
 import { useNavigate } from 'react-router-dom';
+import { requestPost } from '@utils/request';
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate()
-  const login = () => navigate('/home');
+  const login = () => requestPost();
   return(
     <FormContainer>
       <UserOrPetInput

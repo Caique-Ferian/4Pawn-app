@@ -1,12 +1,12 @@
 import React from "react";
 import Header from "@atoms/Header";
 import Image from "@atoms/Image";
-import IPropsHeaderWithLogo from './types/index';
+import PropsHeaderWithLogo from './types/index';
 import logo from './logo.png'
 import Container from "@atoms/Container";
 
-const HeaderWithLogo: React.FC<IPropsHeaderWithLogo> = (
-  { content }: IPropsHeaderWithLogo) => {
+const HeaderWithLogo: React.FC<PropsHeaderWithLogo> = (
+  { content }: PropsHeaderWithLogo) => {
     return(
       <Container className="header-with-logo">
         <Image src={logo} width="250px" height="80px" alt="4Pawn-logo" />

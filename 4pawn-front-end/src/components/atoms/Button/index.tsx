@@ -1,8 +1,8 @@
 import React from "react";
-import IPropsButton from "./types";
+import PropsButton from "./types";
 
 
-const Button: React.FC<IPropsButton> = ({ content, onClick, className, type }: IPropsButton) => {
+const Button: React.FC<PropsButton> = ({ content, onClick, className, type }: PropsButton) => {
   return(
     <button 
       type={type}

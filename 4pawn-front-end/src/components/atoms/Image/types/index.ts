@@ -1,4 +1,4 @@
-export default interface IPropsImage {
+export default interface PropsImage {
   src: string;
   width: string;
   height: string;

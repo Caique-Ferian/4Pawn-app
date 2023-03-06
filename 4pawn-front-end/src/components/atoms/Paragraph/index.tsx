@@ -1,9 +1,9 @@
 import React from "react";
-import IPropsParagraph from "./types";
+import PropsParagraph from "./types";
 
 
 
-const Paragraph: React.FC<IPropsParagraph> = ({content}:IPropsParagraph) => {
+const Paragraph: React.FC<PropsParagraph> = ({content}:PropsParagraph) => {
     return(<p>{content}</p>);
 }
 

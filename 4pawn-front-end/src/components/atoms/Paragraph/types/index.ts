@@ -1,3 +1,3 @@
-export default interface IPropsParagraph {
+export default interface PropsParagraph {
   content: string;
 }

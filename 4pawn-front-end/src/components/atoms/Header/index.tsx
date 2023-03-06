@@ -1,8 +1,8 @@
 import React from "react";
-import IPropsHeader from "./types";
+import PropsHeader from "./types";
 
 
-const Header: React.FC<IPropsHeader> = ({content}:IPropsHeader) => {
+const Header: React.FC<PropsHeader> = ({content}:PropsHeader) => {
   return(<h1>{content}</h1>);
 };
 

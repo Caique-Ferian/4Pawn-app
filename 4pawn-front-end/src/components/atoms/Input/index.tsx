@@ -1,9 +1,9 @@
 import React from 'react';
-import { IPropsInput } from './types';
+import { PropsInput } from './types';
 
-const Input: React.FC<IPropsInput> = ({
+const Input: React.FC<PropsInput> = ({
   type, className, placeholder, formHook, formRegister,id
-}: IPropsInput) => {
+}: PropsInput) => {
   return(
     <input 
       type = {type}

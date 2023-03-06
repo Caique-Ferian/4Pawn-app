@@ -1,11 +1,11 @@
 import Container from "@atoms/Container";
 import React from "react";
 import { Link } from "react-router-dom";
-import IPropsLinkedCard from "./types";
+import PropsLinkedCard from "./types";
 
 
-const LinkedCard: React.FC<IPropsLinkedCard> = (
-  {target, children}: IPropsLinkedCard) => {
+const LinkedCard: React.FC<PropsLinkedCard> = (
+  {target, children}: PropsLinkedCard) => {
     return(
     <Container className="Linked-card">
       <Link to={ target }>{children}</Link>

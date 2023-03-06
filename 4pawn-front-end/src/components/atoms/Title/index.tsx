@@ -1,8 +1,8 @@
 import React from "react";
-import IPropsTitle from "./types";
+import PropsTitle from "./types";
 
 
-const Title: React.FC<IPropsTitle> = ({content}:IPropsTitle) => {
+const Title: React.FC<PropsTitle> = ({content}:PropsTitle) => {
   return(<h4>{content}</h4>);
 }
 

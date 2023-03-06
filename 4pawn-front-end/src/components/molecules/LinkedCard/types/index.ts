@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export default interface IPropsLinkedCard {
+export default interface PropsLinkedCard {
   target: string;
   children: ReactNode;
 }

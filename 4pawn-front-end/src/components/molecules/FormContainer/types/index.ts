@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-export default interface IFormProps {
+export default interface FormProps {
   children: ReactNode;
 }
 

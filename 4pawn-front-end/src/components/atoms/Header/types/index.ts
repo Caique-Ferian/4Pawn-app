@@ -1,3 +1,3 @@
-export default interface IPropsHeader {
+export default interface IropsHeader {
   content: string,
 }

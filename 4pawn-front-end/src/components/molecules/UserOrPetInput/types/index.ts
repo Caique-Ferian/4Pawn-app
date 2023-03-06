@@ -1,7 +1,7 @@
-import { IFormInfos, IPropsInput } from "../../../atoms/Input/types";
+import { FormInfos, PropsInput } from "../../../atoms/Input/types";
 
-export default interface IPropsUserOrPetInput extends Partial<IPropsInput>{
+export default interface PropsUserOrPetInput extends Partial<PropsInput>{
   content: string;
   htmlFor: string;
-  formRegister: keyof IFormInfos;
+  formRegister: keyof FormInfos;
 }
