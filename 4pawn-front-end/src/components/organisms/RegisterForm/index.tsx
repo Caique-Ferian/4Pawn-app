@@ -1,13 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from '@atoms/Button';
 import FormContainer from '@molecules/FormContainer/index';
 import UserOrPetInput from '@molecules/UserOrPetInput/index';
-import { useNavigate } from 'react-router-dom';
+import { AppContext } from '@context/index';
+import AppContextType from '@context/types';
+import Paragraph  from '@atoms/Paragraph';
 
 const RegisterForm: React.FC = () => {
-  const navigate = useNavigate()
+  const { errors } = useContext(AppContext) as AppContextType;
   return(
-    <FormContainer endpoint=''>
+    <FormContainer endpoint='users/'>
       <UserOrPetInput
         content='Nome Completo: '
         htmlFor='nome-input'
@@ -15,6 +17,8 @@ const RegisterForm: React.FC = () => {
         placeholder='Nome Completo'
         formRegister='fullName'
       />
+      { errors.map(({ type,message }, i) => type === 'fullname'
+        && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
         content='Email: '
         htmlFor='email-input'
@@ -23,6 +27,8 @@ const RegisterForm: React.FC = () => {
         formRegister='email'
 
       />
+      { errors.map(({ type,message }, i) => type === 'email'
+        && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
         content='Usuário: '
         htmlFor='usuário-input'
@@ -31,6 +37,8 @@ const RegisterForm: React.FC = () => {
         formRegister='username'
 
       />
+      { errors.map(({ type,message }, i) => type === 'username'
+        && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
         content='Senha: '
         htmlFor='senha-input'
@@ -39,10 +47,11 @@ const RegisterForm: React.FC = () => {
         formRegister='password'
 
       />
+      { errors.map(({ type,message }, i) => type === 'password'
+        && <Paragraph key={i} content={ message }/>) }
       <Button
         content='Registrar'
         type='submit'
-        onClick={() => navigate('/home')}
         className='btn btn-primary'
       />
     </FormContainer>

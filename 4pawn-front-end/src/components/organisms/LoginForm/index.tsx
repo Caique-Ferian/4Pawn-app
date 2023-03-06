@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from '@atoms/Button';
 import FormContainer from '@molecules/FormContainer/index';
 import UserOrPetInput from '@molecules/UserOrPetInput/index';
 import { useNavigate } from 'react-router-dom';
+import { AppContext } from '@context/index';
+import AppContextType from '@context/types';
+import Paragraph from '@atoms/Paragraph';
 
 const LoginForm: React.FC = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const { errors } = useContext(AppContext) as AppContextType;
   return(
     <FormContainer endpoint='users/auth/login'>
       <UserOrPetInput
@@ -15,6 +19,8 @@ const LoginForm: React.FC = () => {
         placeholder='Usuário'
         formRegister='username'
       />
+      { errors.map(({ type, message } ,i) => type === 'username'
+        && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
         content='Senha: '
         htmlFor='senha-input'
@@ -22,6 +28,8 @@ const LoginForm: React.FC = () => {
         placeholder='Senha'
         formRegister='password'
       />
+      { errors.map(({ type, message } ,i) => type === 'password'
+        && <Paragraph key={i} content={ message }/>) }
       <Button
         content='Entrar'
         type='submit'

@@ -4,7 +4,7 @@ export interface Error {
 }
 
 type AppContextType = {
-  error: Error,
+  errors: Error[],
   token: string,
   user: string,
   post: Function;
