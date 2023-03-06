@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FormInfos } from '@atoms/Input/types'
 import { useForm, SubmitHandler, UseFormReturn } from 'react-hook-form'
 import FormProps from './types';
+import { AppContext } from '@context/index';
+import AppContextType from '@context/types';
 
-const FormContainer: React.FC<FormProps> = ({ children }:FormProps) => {
+const FormContainer: React.FC<FormProps> = ({ endpoint, children }:FormProps) => {
   const formHook = useForm<FormInfos>();
-  const onSubmit: SubmitHandler<FormInfos> = (data) => console.log(data);
+  const { post } = useContext(AppContext) as AppContextType
+  const onSubmit: SubmitHandler<FormInfos> = async (data) => await post(endpoint, data);
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
       return React

@@ -5,27 +5,27 @@ import UserOrPetInput from '@molecules/UserOrPetInput/index';
 
 const RegisterPet: React.FC = () => {
   return(
-    <FormContainer>
+    <FormContainer endpoint=''>
       <UserOrPetInput
         content='Nome do Pet: '
         htmlFor='nome-input'
         type='text'
         placeholder='Nome do Pet'
-        formRegister='petName'
+        formRegister='name'
       />
       <UserOrPetInput
         content='Idade em anos: '
         htmlFor='idade-input'
         type='number'
         placeholder='Idade em anos'
-        formRegister='petAge'
+        formRegister='ageInYears'
       />
       <UserOrPetInput
         content='Peso em Kg: '
         htmlFor='peso-input'
         type='number'
         placeholder='Peso em Kg'
-        formRegister='petWeight'
+        formRegister='weightInKg'
 
       />
       <UserOrPetInput
@@ -33,7 +33,7 @@ const RegisterPet: React.FC = () => {
         htmlFor='cor-input'
         type='text'
         placeholder='Cor'
-        formRegister='petColor'
+        formRegister='color'
 
       />
       <UserOrPetInput
@@ -41,7 +41,7 @@ const RegisterPet: React.FC = () => {
         htmlFor='imagem-input'
         type='text'
         placeholder='Imagem'
-        formRegister='petImage'
+        formRegister='image'
 
       />
       <Button

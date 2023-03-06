@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const RegisterForm: React.FC = () => {
   const navigate = useNavigate()
   return(
-    <FormContainer>
+    <FormContainer endpoint=''>
       <UserOrPetInput
         content='Nome Completo: '
         htmlFor='nome-input'

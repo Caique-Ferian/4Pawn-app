@@ -11,10 +11,10 @@ const Router: React.FunctionComponent = () => {
     <BrowserRouter>
     <Routes>
       <Route path='/' element={<AppProvider><LoginPage/></AppProvider>} />
-      <Route path='/register' element={<RegisterPage/>} />
-      <Route path='/admin' element={<AdminPage/>} />
-      <Route path='/home' element={<HomePage/>} />
-      <Route path='/pet-details' element={<PetDetailsPage/>} />
+      <Route path='/register' element={<AppProvider><RegisterPage/></AppProvider>} />
+      <Route path='/admin' element={<AppProvider><AdminPage/></AppProvider>} />
+      <Route path='/home' element={<AppProvider><HomePage/></AppProvider>} />
+      <Route path='/pet-details' element={<AppProvider><PetDetailsPage/></AppProvider>} />
     </Routes>
     </BrowserRouter>
   );

@@ -14,9 +14,9 @@ export interface FormInfos {
   password: string;
   fullName: string;
   email: string;
-  petName: string;
-  petAge: number; 
-  petWeight: number;
-  petColor: string;
-  petImage: string;
+  name: string;
+  ageInYears: number; 
+  weightInKg: number;
+  color: string;
+  image: string;
 }

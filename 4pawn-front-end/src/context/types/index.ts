@@ -1,11 +1,13 @@
-export interface IError {
+export interface Error {
   type: string;
   message: string;
 }
 
 type AppContextType = {
-  error: IError,
-  setError: React.Dispatch<React.SetStateAction<IError>>
+  error: Error,
+  token: string,
+  user: string,
+  post: Function;
 }
 
 export default AppContextType;

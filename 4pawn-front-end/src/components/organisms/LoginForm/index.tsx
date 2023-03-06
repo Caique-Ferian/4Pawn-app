@@ -3,13 +3,11 @@ import Button from '@atoms/Button';
 import FormContainer from '@molecules/FormContainer/index';
 import UserOrPetInput from '@molecules/UserOrPetInput/index';
 import { useNavigate } from 'react-router-dom';
-import { requestPost } from '@utils/request';
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate()
-  const login = () => requestPost();
   return(
-    <FormContainer>
+    <FormContainer endpoint='users/auth/login'>
       <UserOrPetInput
         content='Usuário: '
         htmlFor='usuário-input'
@@ -27,7 +25,6 @@ const LoginForm: React.FC = () => {
       <Button
         content='Entrar'
         type='submit'
-        onClick={login}
         className='btn btn-primary'
       />
       <Button
