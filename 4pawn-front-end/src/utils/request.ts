@@ -11,4 +11,9 @@ export const requestPost = async (endpoint: string, body: LoginBody) => {
   return data;
 }
 
+export const requestGet = async(endpoint:string) => {
+  const { data } = await api.get(endpoint);
+  return data;
+}
+
 export default api;

@@ -1,22 +1,21 @@
 import Image from "@atoms/Image";
-import Paragraph from "@atoms/Paragraph";
 import Title from "@atoms/Title";
 import LinkedCard from "@molecules/LinkedCard";
 import React from "react";
+import CardsProps from './types/index';
 
 
 
-const PetCard: React.FC = () => {
+const PetCard: React.FC<CardsProps> = ({ name, image, index }: CardsProps) => {
   return(
-    <LinkedCard target="/pet-details">
-      <Title content="Organism"/>
+    <LinkedCard target={`/pet-details/${ index }`}>
+      <Title content={ name }/>
       <Image 
-        src="pet"
-        width="300px"
-        height="300px"
-        alt="creating_organism"
+        src={ image }
+        width="400px"
+        height="400px"
+        alt={ name }
       />
-      <Paragraph content="New-Organism"/>
     </LinkedCard>
   );
 }

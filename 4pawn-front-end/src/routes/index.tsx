@@ -14,7 +14,7 @@ const Router: React.FunctionComponent = () => {
       <Route path='/register' element={<AppProvider><RegisterPage/></AppProvider>} />
       <Route path='/admin' element={<AppProvider><AdminPage/></AppProvider>} />
       <Route path='/home' element={<AppProvider><HomePage/></AppProvider>} />
-      <Route path='/pet-details' element={<AppProvider><PetDetailsPage/></AppProvider>} />
+      <Route path='/pet-details/:id' element={<AppProvider><PetDetailsPage/></AppProvider>} />
     </Routes>
     </BrowserRouter>
   );

@@ -5,23 +5,24 @@ import Paragraph from "@atoms/Paragraph";
 import Title from "@atoms/Title";
 import LinkButton from "@molecules/LinkButton";
 import React from "react";
+import PetDetailsProps from "./types";
 
 
 
-const PetDetails: React.FC = () => {
+const PetDetails: React.FC<PetDetailsProps> = (
+  { name, ageInYears, weightInKg, color, image }: PetDetailsProps) => {
   return(
     <Container className="pet-details">
-      <Title content="Organism"/>
+      <Title content={ name }/>
       <Image 
-        src="pet"
-        width="300px"
-        height="300px"
-        alt="creating_organism"
+        src={ image }
+        width="600px"
+        height="600px"
+        alt={ name }
       />
-      <Paragraph content="Lorem ipsum dolor sit amet consectetur 
-      adipisicing elit. Dolores nulla, commodi modi laborum sint perferendis 
-      error iusto ducimus autem? Illum quia repellendus magni autem at,
-      molestias ab eaque eos distinctio?"/>
+      <Paragraph content= {`Idade em ano(s): ${ ageInYears }`}/>
+      <Paragraph content= {`Peso em Kg(s): ${ weightInKg }`}/>
+      <Paragraph content= {`Raça/Cor: ${ color }`}/>
       <Container className="pet-details-buttons">
         <Button type="button" content="Adotar" className="adopt-button"/>
         <LinkButton content="Voltar" target="/home"/>

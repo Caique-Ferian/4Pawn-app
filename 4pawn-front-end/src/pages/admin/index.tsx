@@ -6,7 +6,7 @@ import AdminHeader from '@organisms/AdminHeader';
 const AdminPage: React.FunctionComponent = () => {
   return(
     <Container className="admin-page">
-      <AdminHeader />
+      <AdminHeader content='Home' target='/home'/>
       <RegisterPet />
     </Container>
   );

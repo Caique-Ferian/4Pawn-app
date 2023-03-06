@@ -11,7 +11,7 @@ const UserHeader: React.FC = () => {
   return(
     <Container className="user-header">
       <HeaderWithLogo content="4 Pawn"/>
-      <Paragraph content={`Hello ${user}`}/>
+      <Paragraph content={`Hello ${user.username}`}/>
       <LinkButton content="Animais adotados" target="/home" />
       <LinkButton content="Logout" target='/'className="logout-button"/>
     </Container>

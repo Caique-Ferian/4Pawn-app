@@ -1,7 +1,7 @@
 import { Error } from '@context/types';
 import errorsTypes from '../constants/index';
 
-const errorHandler = (data: any) => {
+const errorHandler = (data: any): Error[] => {
   const result: Error[] = [];
   let type: string;
   if(data.message) {
