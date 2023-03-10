@@ -6,6 +6,7 @@ import HomePage from '@pages/home';
 import PetDetailsPage from '@pages/pet-details';
 import AppProvider from '../context';
 import AdminPage from '@pages/admin';
+import ProfilePage from '@pages/profile';
 const Router: React.FunctionComponent = () => {
   return(
     <BrowserRouter>
@@ -15,6 +16,7 @@ const Router: React.FunctionComponent = () => {
       <Route path='/admin' element={<AppProvider><AdminPage/></AppProvider>} />
       <Route path='/home' element={<AppProvider><HomePage/></AppProvider>} />
       <Route path='/pet-details/:id' element={<AppProvider><PetDetailsPage/></AppProvider>} />
+      <Route path='/profile' element={<AppProvider><ProfilePage/></AppProvider>} />
     </Routes>
     </BrowserRouter>
   );

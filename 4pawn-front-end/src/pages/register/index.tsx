@@ -2,7 +2,7 @@ import React from 'react';
 import RegisterForm from '@organisms/RegisterForm';
 import Container from '@atoms/Container/index';
 
-const RegisterPage: React.FunctionComponent = () => {
+const RegisterPage: React.FC = () => {
   return(
     <Container className="register-page">
       <RegisterForm />

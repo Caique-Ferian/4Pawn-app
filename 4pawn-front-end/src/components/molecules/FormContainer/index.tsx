@@ -7,8 +7,12 @@ import AppContextType from '@context/types';
 
 const FormContainer: React.FC<FormProps> = ({ endpoint, children }:FormProps) => {
   const formHook = useForm<FormInfos>();
-  const { post } = useContext(AppContext) as AppContextType
-  const onSubmit: SubmitHandler<FormInfos> = async (data) => await post(endpoint, data);
+  const { post, patch, user } = useContext(AppContext) as AppContextType
+  const onSubmit: SubmitHandler<FormInfos> = async (data) => {
+    if(endpoint.includes('patch')) {
+      await patch(endpoint,{ ...data, username: user.username })
+    } else await post(endpoint, data);
+  }
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
       return React

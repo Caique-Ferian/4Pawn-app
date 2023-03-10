@@ -1,3 +1,5 @@
+import { Dispatch, SetStateAction } from 'react'
+
 export interface Error {
   type: string;
   message: string;
@@ -17,12 +19,14 @@ export interface Pets {
 }
 
 type AppContextType = {
-  errors: Error[],
-  token: string,
-  user: User,
+  errors: Error[];
+  setErrors: Dispatch<SetStateAction<Error[]>>;
+  token: string;
+  user: User;
   post: Function;
   get: Function;
   cards: Pets[];
+  patch: Function;
 }
 
 export default AppContextType;

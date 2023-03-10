@@ -9,7 +9,11 @@ import Paragraph from '@atoms/Paragraph';
 
 const LoginForm: React.FC = () => {
   const navigate = useNavigate();
-  const { errors } = useContext(AppContext) as AppContextType;
+  const { errors, setErrors } = useContext(AppContext) as AppContextType;
+  const goToRegister = () => {
+    setErrors([]);
+    navigate('/register');
+  }
   return(
     <FormContainer endpoint='users/auth/login'>
       <UserOrPetInput
@@ -38,7 +42,7 @@ const LoginForm: React.FC = () => {
       <Button
         content='Register'
         type='button'
-        onClick={() => navigate('/register')}
+        onClick={ goToRegister }
         className='btn btn-primary'
       />
     </FormContainer>

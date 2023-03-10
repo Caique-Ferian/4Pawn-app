@@ -7,7 +7,7 @@ import { AppContext } from '@context/index';
 import AppContextType from '@context/types';
 import AdminHeader  from '@organisms/AdminHeader';
 
-const HomePage: React.FunctionComponent = () => {
+const HomePage: React.FC = () => {
   const { cards, get, user } = useContext(AppContext) as AppContextType
   useEffect(() => {
     const fetch = async() => await get('pets');
@@ -21,7 +21,7 @@ const HomePage: React.FunctionComponent = () => {
         <AdminHeader
           content='Register Pet'
           target='/admin' 
-        />) : <UserHeader />}
+        />) : <UserHeader/>}
       {cards.map(({ name,image },i) =>
         <PetCard 
           key={ i }
