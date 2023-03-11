@@ -40,6 +40,7 @@ export default class AuthService implements AuthRepository {
 
   public async tokenGeneration(payload: User): Promise<AuthToken> {
     return {
+      role: payload.role,
       token: this.jwtService.sign({
         username: payload.username,
         role: payload.role,

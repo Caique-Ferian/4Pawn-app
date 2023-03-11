@@ -35,6 +35,7 @@ let AuthService = class AuthService {
     }
     async tokenGeneration(payload) {
         return {
+            role: payload.role,
             token: this.jwtService.sign({
                 username: payload.username,
                 role: payload.role,

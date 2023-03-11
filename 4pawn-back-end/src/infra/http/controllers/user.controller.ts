@@ -63,9 +63,9 @@ export class UserController {
     @Request() req: LoginUserRequest,
   ): Promise<LoginUserResponse> {
     const { username, password } = body;
-    const { token } = req.user;
+    const { token, role } = req.user;
     await this.loginUser.execute({ username, password });
-    return { token };
+    return { token, role };
   }
   @Patch('patch/email')
   async patchEmail(

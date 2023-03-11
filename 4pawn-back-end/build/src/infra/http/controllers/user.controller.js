@@ -50,9 +50,9 @@ let UserController = class UserController {
     }
     async login(body, req) {
         const { username, password } = body;
-        const { token } = req.user;
+        const { token, role } = req.user;
         await this.loginUser.execute({ username, password });
-        return { token };
+        return { token, role };
     }
     async patchEmail(body) {
         try {
