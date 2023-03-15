@@ -1,4 +1,4 @@
-import React, { useState, useEffect,useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import AppContextType, { Error, Pets, User } from './types';
 import { requestPost, requestGet, setToken as tokenToApi, requestUserPatch, requestPetPatch } from '@utils/request';
 import { FormInfos } from '@atoms/Input/types';
@@ -28,7 +28,7 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
         await get(endpoint);
         navigate('/home');
       }
-    } catch(err: any){
+    } catch(err: any) {
       const { response: { data } } = err;
       setErrors(errorHandler(data));
     }
@@ -40,19 +40,18 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
         await requestUserPatch(endpoint, data);
       }
       if(endpoint.includes('pets')) {
-        let datas;
-        if(data.id) datas = await requestPetPatch(endpoint, data);
-        else datas = await requestPetPatch(endpoint, {...data, id: petId});
-        console.log(datas);
-        // await get('pets');
-        // navigate('/home');
+        if(data.id) await requestPetPatch(endpoint, data);
+        else  {
+          await requestPetPatch(endpoint, {...data, id: petId});
+          navigate('/home');
+        } 
       }
-    } catch(err: any){
+    } catch(err: any) {
       const { response: { data } } = err;
       console.log(err);
       setErrors(errorHandler(data));
     }
-  },[petId]);
+  },[petId, navigate]);
   const get = async(endpoint:string): Promise<void> => {
     const { pets } = await requestGet(endpoint);
     setCards(pets);

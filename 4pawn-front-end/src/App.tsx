@@ -1,5 +1,7 @@
 import React from 'react';
-import Router from './routes'
+import Router from './routes';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 
 const App: React.FunctionComponent = () => {
   return (
@@ -7,6 +9,6 @@ const App: React.FunctionComponent = () => {
       <Router/>
     </div>
   );
-}
+};
 
 export default App;
