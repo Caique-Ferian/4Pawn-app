@@ -30,6 +30,7 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
       }
     } catch(err: any) {
       const { response: { data } } = err;
+      console.log(err);
       setErrors(errorHandler(data));
     }
   },[navigate]);

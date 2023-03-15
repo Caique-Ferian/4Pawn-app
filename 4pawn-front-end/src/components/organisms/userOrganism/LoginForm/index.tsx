@@ -17,28 +17,24 @@ const LoginForm: React.FC = () => {
   }
   return(
     <FormContainer endpoint='users/auth/login'>
-      <Container className='mb-3'>
-        <UserOrPetInput
-          content='Username'
-          htmlFor='username-input'
-          type='text'
-          placeholder='Username'
-          formRegister='username'
-          />
-        { errors.map(({ type, message } ,i) => type === 'username'
-          && <Paragraph key={i} content={ message }/>) }
-      </Container>
-      <Container className='mb-3'>
-        <UserOrPetInput
-          content='Password'
-          htmlFor='password-input'
-          type='password'
-          placeholder='Password'
-          formRegister='password'
-          />
-        { errors.map(({ type, message } ,i) => type === 'password'
-          && <Paragraph key={i} content={ message }/>) }
-      </Container>
+      <UserOrPetInput
+        content='Username'
+        htmlFor='username-input'
+        type='text'
+        placeholder='Username'
+        formRegister='username'
+        />
+      { errors.map(({ type, message } ,i) => type === 'username'
+        && <Paragraph key={i} content={ message }/>) }
+      <UserOrPetInput
+        content='Password'
+        htmlFor='password-input'
+        type='password'
+        placeholder='Password'
+        formRegister='password'
+        />
+      { errors.map(({ type, message } ,i) => type === 'password'
+        && <Paragraph key={i} content={ message }/>) }
       <Container className='login-page-buttons'>
         <Container className='login-button'>
           <Button

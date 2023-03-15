@@ -6,10 +6,10 @@
   flex-direction: column;
   margin-left: 40%;
   margin-top: 15%;
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 50px;
-  width: 20%;
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 40px;
+  width: 25%;
 }
 
 .image-container {
@@ -19,8 +19,9 @@
 .login-page-buttons {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .login-button {
-  padding-right: 20px;
+  padding-right: 10px;
 }

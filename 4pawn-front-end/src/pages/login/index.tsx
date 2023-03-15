@@ -9,7 +9,7 @@ const LoginPage: React.FC = () => {
   return(
     <Container className="login-page">
       <Container className='image-container'>
-        <Image src={logo} width="250px" height="80px" alt="4Pawn-logo"/>
+        <Image src={logo} width="90%" height="100%" alt="4Pawn-logo"/>
       </Container>
       <LoginForm/>
     </Container>
