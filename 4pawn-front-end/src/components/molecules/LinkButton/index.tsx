@@ -7,11 +7,12 @@ import { AppContext } from '@context/index';
 import AppContextType from "@context/types";
 
 const LinkButton: React.FC<PropsLinkButton> = (
-  {target,content, className}:PropsLinkButton) => {
-    const { setErrors } = useContext(AppContext) as AppContextType
+  {target,content, petId ,className, disabled}:PropsLinkButton) => {
+    const { setErrors, setPetId } = useContext(AppContext) as AppContextType
     const navigate = useNavigate();
     const goTo = () => {
-      setErrors([]);
+      if(petId) setPetId(petId);
+      else setErrors([]);
       navigate(target);
     }
     return(
@@ -19,6 +20,7 @@ const LinkButton: React.FC<PropsLinkButton> = (
         <Button 
           type="button"
           onClick={goTo}
+          disabled={disabled ?? false}
           content={content}
           className='link-button'
         />

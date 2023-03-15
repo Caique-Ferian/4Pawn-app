@@ -6,6 +6,7 @@ export default interface LoginBody {
 }
 
 export interface PetBody {
+  id?:string;
   name: string;
   ageInYears: string;
   weightInKg: string;

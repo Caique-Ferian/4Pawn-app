@@ -26,21 +26,22 @@ export const requestPost = async (endpoint: string, body: LoginBody | PetBody) =
   return data;
 }
 
-export const requestPatch = async (endpoint: string, body: Partial<LoginBody | PetBody>) => {
-  if(endpoint.includes('pets')) {
-    const { name, ageInYears,weightInKg,color,image } = body as PetBody;
-    const { data } = await api.post(endpoint, {
-      name,
-      ageInYears: +ageInYears,
-      weightInKg: +weightInKg,
-      color,
-      image
-    });
-    return data;
-  }
+export const requestUserPatch = async (endpoint: string, body: Partial<LoginBody>) => {
   const { data } = await api.patch(endpoint, body);
   return data;
 }
+
+export const requestPetPatch = async (endpoint: string, body: Partial<PetBody>) => {
+  if(body.id) {
+    const fieldToUpdate = body.ageInYears ?
+  { id: body.id, ageInYears: +body.ageInYears }
+  : body.weightInKg ? { id: body.id, weightInKg: +body.weightInKg } : {...body};
+    const { data } = await api.patch(endpoint, fieldToUpdate);
+    return data;
+  }
+
+}
+
 
 
 export const requestGet = async(endpoint:string) => {

@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
-import UserHeader from '@organisms/UserHeader';
-import PetDetails from '@organisms/PetDetails';
+import UserHeader from '@organisms/userOrganism/UserHeader';
+import PetDetails from '@organisms/petOrganism/PetDetails';
 import Container from '@atoms/Container';
 import { AppContext } from '@context/index';
 import AppContextType from '@context/types';

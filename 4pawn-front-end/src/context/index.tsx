@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect,useCallback } from 'react';
 import AppContextType, { Error, Pets, User } from './types';
-import { requestPost, requestGet, setToken as tokenToApi, requestPatch } from '@utils/request';
+import { requestPost, requestGet, setToken as tokenToApi, requestUserPatch, requestPetPatch } from '@utils/request';
 import { FormInfos } from '@atoms/Input/types';
 import { useNavigate } from 'react-router-dom';
 import errorHandler from '@utils/error';
@@ -11,9 +11,11 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [user,setUser] = useState<User>({ username:'', role: '' });
   const [token,setToken] = useState<string>('');
   const [cards,setCards] = useState<Pets[]>([]);
+  const [petId,setPetId] = useState<string>('');
   const navigate = useNavigate();
-  const post = async (endpoint: string, data: FormInfos): Promise<void> => {
+  const post = useCallback( async (endpoint: string, data: FormInfos): Promise<void> => {
     try{
+      setErrors([]);
       if(endpoint.includes('users')) {
         const { token, role } = await requestPost(endpoint, data);
         setToken(token);
@@ -30,28 +32,35 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
       const { response: { data } } = err;
       setErrors(errorHandler(data));
     }
-  }
-  const patch = async (endpoint: string, data: FormInfos): Promise<void> => {
+  },[navigate]);
+  const patch = useCallback( async (endpoint: string, data: FormInfos): Promise<void> => {
     try{
+      setErrors([]);
       if(endpoint.includes('users')) {
-        await requestPatch(endpoint, data);
+        await requestUserPatch(endpoint, data);
       }
       if(endpoint.includes('pets')) {
-        await requestPatch(endpoint, data);
-        await get('pets');
-        navigate('/home');
+        let datas;
+        if(data.id) datas = await requestPetPatch(endpoint, data);
+        else datas = await requestPetPatch(endpoint, {...data, id: petId});
+        console.log(datas);
+        // await get('pets');
+        // navigate('/home');
       }
     } catch(err: any){
       const { response: { data } } = err;
+      console.log(err);
       setErrors(errorHandler(data));
     }
-  }
+  },[petId]);
   const get = async(endpoint:string): Promise<void> => {
     const { pets } = await requestGet(endpoint);
     setCards(pets);
   }
   return(
-    <AppContext.Provider value={{ errors, setErrors, token, user, post, get, cards, patch }}>
+    <AppContext.Provider value={
+      { errors, setErrors, token, user, post, get,
+      cards, patch, setPetId, setCards }}>
       {children}
     </AppContext.Provider>
   )

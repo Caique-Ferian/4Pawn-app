@@ -1,8 +1,8 @@
 import React from "react";
 import Container from "@atoms/Container";
-import UserHeader from "@organisms/UserHeader";
-import UpdateEmailForm from "@organisms/UpdateEmailForm";
-import UpdatePasswordForm from "@organisms/UpdatePasswordForm";
+import UserHeader from "@organisms/userOrganism/UserHeader";
+import UpdateEmailForm from "@organisms/userOrganism/UpdateEmailForm";
+import UpdatePasswordForm from "@organisms/userOrganism/UpdatePasswordForm";
 
 const ProfilePage: React.FC = () => {
   return (

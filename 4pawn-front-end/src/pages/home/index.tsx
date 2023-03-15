@@ -1,11 +1,11 @@
 import React, { useContext, useEffect } from 'react';
-import UserHeader from '@organisms/UserHeader';
+import UserHeader from '@organisms/userOrganism/UserHeader';
 import './home.css'
 import Container from '@atoms/Container';
-import PetCard from '@organisms/PetsCard';
+import PetCard from '@organisms/petOrganism/PetsCard';
 import { AppContext } from '@context/index';
 import AppContextType from '@context/types';
-import AdminHeader  from '@organisms/AdminHeader';
+import AdminHeader  from '@organisms/userOrganism/AdminHeader';
 
 const HomePage: React.FC = () => {
   const { cards, get, user } = useContext(AppContext) as AppContextType
@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
     <Container className="home-page">
       {user.role === 'admin' ? (
         <AdminHeader
-          content='Register Pet'
+          content='Pets'
           target='/admin' 
         />) : <UserHeader/>}
       {cards.map(({ name,image },i) =>

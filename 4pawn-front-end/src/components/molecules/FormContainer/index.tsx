@@ -9,8 +9,11 @@ const FormContainer: React.FC<FormProps> = ({ endpoint, children }:FormProps) =>
   const formHook = useForm<FormInfos>();
   const { post, patch, user } = useContext(AppContext) as AppContextType
   const onSubmit: SubmitHandler<FormInfos> = async (data) => {
-    if(endpoint.includes('patch')) {
-      await patch(endpoint,{ ...data, username: user.username })
+    if(endpoint.includes('users/patch')) {
+      await patch(endpoint,{ ...data, username: user.username });
+    } 
+    if(endpoint.includes('pets/patch')) {
+      await patch(endpoint,data);
     } else await post(endpoint, data);
   }
   const childrenWithProps = React.Children.map(children, (child) => {

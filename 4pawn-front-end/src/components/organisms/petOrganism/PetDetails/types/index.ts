@@ -1,5 +1,5 @@
 
-import CardsProps from '@organisms/PetsCard/types/index';
+import CardsProps from '@organisms/petOrganism/PetsCard/types/index';
 
 export default interface PetDetailsProps extends CardsProps {
   ageInYears: number;

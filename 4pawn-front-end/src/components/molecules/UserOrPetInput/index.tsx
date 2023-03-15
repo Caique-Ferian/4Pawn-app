@@ -10,6 +10,8 @@ const UserOrPetInput: React.FC<PropsUserOrPetInput> = ({
   placeholder,
   content,
   htmlFor,
+  checked,
+  onChange,
 }: PropsUserOrPetInput) => {
   return(
     <Label className="label-input" content={content} htmlFor={htmlFor}>
@@ -18,6 +20,8 @@ const UserOrPetInput: React.FC<PropsUserOrPetInput> = ({
         id={htmlFor}
         formHook={formHook}
         type={type as string}
+        checked={checked}
+        onChange={onChange}
         placeholder={placeholder as string}
         className="input-user"
       />

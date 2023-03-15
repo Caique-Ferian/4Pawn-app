@@ -11,11 +11,13 @@ export interface User {
 }
 
 export interface Pets {
+  id:string;
   name: string;
   ageInYears: number;
   weightInKg: number;
   color: string;
   image: string;
+  adopted:boolean;
 }
 
 type AppContextType = {
@@ -27,6 +29,10 @@ type AppContextType = {
   get: Function;
   cards: Pets[];
   patch: Function;
+  setPetId: Dispatch<SetStateAction<string>>;
+  setCards: Dispatch<SetStateAction<Pets[]>>;
+
+
 }
 
 export default AppContextType;
