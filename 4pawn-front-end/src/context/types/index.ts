@@ -29,6 +29,7 @@ type AppContextType = {
   get: Function;
   cards: Pets[];
   patch: Function;
+  goBack: Function;
   setPetId: Dispatch<SetStateAction<string>>;
   setCards: Dispatch<SetStateAction<Pets[]>>;
 

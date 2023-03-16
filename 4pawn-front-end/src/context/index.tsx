@@ -58,10 +58,14 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     const { pets } = await requestGet(endpoint);
     setCards(pets);
   }
+  const goBack = useCallback((target:string) => {
+    setErrors([]);
+    navigate(target);
+  },[setErrors,navigate])
   return(
     <AppContext.Provider value={
       { errors, setErrors, token, user, post, get,
-      cards, patch, setPetId, setCards }}>
+      cards, patch, setPetId, setCards, goBack }}>
       {children}
     </AppContext.Provider>
   )

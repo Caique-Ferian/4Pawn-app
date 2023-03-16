@@ -5,16 +5,10 @@ import UserOrPetInput from '@molecules/UserOrPetInput/index';
 import { AppContext } from '@context/index';
 import AppContextType from '@context/types';
 import Paragraph  from '@atoms/Paragraph';
-import { useNavigate } from 'react-router-dom';
 import Container from '@atoms/Container';
 
 const RegisterForm: React.FC = () => {
-  const { errors,setErrors } = useContext(AppContext) as AppContextType;
-  const navigate = useNavigate();
-  const goToHome = () => {
-    setErrors([]);
-    navigate('/');
-  }
+  const { errors, goBack } = useContext(AppContext) as AppContextType;
   return(
     <FormContainer endpoint='users/'>
       <UserOrPetInput
@@ -56,17 +50,17 @@ const RegisterForm: React.FC = () => {
       />
       { errors.map(({ type,message }, i) => type === 'password'
         && <Paragraph key={i} content={ message }/>) }
-      <Container className='user-buttons-container'>
+      <Container className='buttons-container'>
         <Button
           content='Register'
           type='submit'
-          className='btn btn-secondary register-button'
+          className='btn btn-dark'
         />
         <Button
           content='Back'
           type='button'
-          className='btn btn-secondary'
-          onClick={goToHome}
+          className='btn btn-danger'
+          onClick={() => goBack('/')}
         />
       </Container>
     </FormContainer>

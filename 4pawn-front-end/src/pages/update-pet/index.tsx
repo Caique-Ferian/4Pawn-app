@@ -11,9 +11,11 @@ const UpdatePetPage: React.FC = () => {
   return(
     <Container className="admin-page">
       <AdminHeader content='Home' target='/home'/>
-      {type === 'age' && <UpdatePetAgeForm />}
-      {type === 'weight' && <UpdatePetWeightForm />}
-      {type === 'image' && <UpdatePetImageForm />}
+      <Container className="register-form">
+        {type === 'age' && <UpdatePetAgeForm />}
+        {type === 'weight' && <UpdatePetWeightForm />}
+        {type === 'image' && <UpdatePetImageForm />}
+      </Container>
     </Container>
   );
 };

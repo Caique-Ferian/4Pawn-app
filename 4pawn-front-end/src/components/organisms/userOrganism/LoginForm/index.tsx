@@ -2,19 +2,13 @@ import React, { useContext } from 'react';
 import Button from '@atoms/Button';
 import FormContainer from '@molecules/FormContainer/index';
 import UserOrPetInput from '@molecules/UserOrPetInput/index';
-import { useNavigate } from 'react-router-dom';
 import { AppContext } from '@context/index';
 import AppContextType from '@context/types';
 import Paragraph from '@atoms/Paragraph';
 import Container from '@atoms/Container';
 
 const LoginForm: React.FC = () => {
-  const navigate = useNavigate();
-  const { errors, setErrors } = useContext(AppContext) as AppContextType;
-  const goToRegister = () => {
-    setErrors([]);
-    navigate('/register');
-  }
+  const { errors,goBack } = useContext(AppContext) as AppContextType;
   return(
     <FormContainer endpoint='users/auth/login'>
       <UserOrPetInput
@@ -35,17 +29,17 @@ const LoginForm: React.FC = () => {
         />
       { errors.map(({ type, message } ,i) => type === 'password'
         && <Paragraph key={i} content={ message }/>) }
-      <Container className='user-buttons-container'>
+      <Container className='buttons-container'>
         <Button
           content='Enter'
           type='submit'
-          className='btn btn-dark login-button'
+          className='btn btn-success'
         />
         <Button
           content='Register'
           type='button'
-          onClick={ goToRegister }
-          className='btn btn-secondary'
+          onClick={ () => goBack('register') }
+          className='btn btn-dark'
         />
       </Container>
     </FormContainer>

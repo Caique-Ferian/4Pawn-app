@@ -5,13 +5,14 @@ import UserOrPetInput from '@molecules/UserOrPetInput/index';
 import { AppContext } from '@context/index';
 import AppContextType from '@context/types';
 import Paragraph  from '@atoms/Paragraph';
+import Container from '@atoms/Container';
 
 const UpdatePetAgeForm: React.FC = () => {
-  const { errors } = useContext(AppContext) as AppContextType;
+  const { errors, goBack } = useContext(AppContext) as AppContextType;
   return(
     <FormContainer endpoint='pets/patch/age'>
       <UserOrPetInput
-        content='Age In years: '
+        content='Age In years'
         htmlFor='age-input'
         type='number'
         placeholder='Age In years'
@@ -19,11 +20,19 @@ const UpdatePetAgeForm: React.FC = () => {
       />
       { errors.map(({ type,message }, i) => type === 'ageinyears'
         && <Paragraph key={i} content={ message }/>) }
-      <Button
-        content='Update'
-        type='submit'
-        className='btn btn-primary'
-      />
+      <Container className='buttons-container'>
+        <Button
+          content='Update'
+          type='submit'
+          className='btn btn-dark'
+        />
+        <Button
+          content='Back'
+          type='button'
+          className='btn btn-danger'
+          onClick={() => goBack('/admin')}
+        />
+      </Container>
     </FormContainer>
   );
 }

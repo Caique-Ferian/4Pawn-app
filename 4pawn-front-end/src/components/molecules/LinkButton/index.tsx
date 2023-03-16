@@ -12,7 +12,7 @@ const LinkButton: React.FC<PropsLinkButton> = (
     const navigate = useNavigate();
     const goTo = () => {
       if(petId) setPetId(petId);
-      else setErrors([]);
+      setErrors([]);
       navigate(target);
     }
     return(
