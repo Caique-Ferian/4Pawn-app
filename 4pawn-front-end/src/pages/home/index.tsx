@@ -1,6 +1,5 @@
 import React, { useContext, useEffect } from 'react';
 import UserHeader from '@organisms/userOrganism/UserHeader';
-import './home.css'
 import Container from '@atoms/Container';
 import PetCard from '@organisms/petOrganism/PetsCard';
 import { AppContext } from '@context/index';

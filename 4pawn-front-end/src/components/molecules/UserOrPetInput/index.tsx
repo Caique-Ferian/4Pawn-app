@@ -12,9 +12,11 @@ const UserOrPetInput: React.FC<PropsUserOrPetInput> = ({
   htmlFor,
   checked,
   onChange,
+  classNameInput,
+  classNameLabel,
 }: PropsUserOrPetInput) => {
   return(
-    <Label className="col-form-label-lg" content={content} htmlFor={htmlFor}>
+    <Label className={classNameLabel ?? "col-form-label-lg"} content={content} htmlFor={htmlFor}>
       <Input
         formRegister={formRegister}
         id={htmlFor}
@@ -23,7 +25,7 @@ const UserOrPetInput: React.FC<PropsUserOrPetInput> = ({
         checked={checked}
         onChange={onChange}
         placeholder={placeholder as string}
-        className='form-control form-control-lg'
+        className={classNameInput ?? 'form-control form-control-lg'}
       />
     </Label>
   );

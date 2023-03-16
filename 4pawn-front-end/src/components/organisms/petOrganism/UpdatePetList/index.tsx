@@ -5,10 +5,11 @@ import Container from '@atoms/Container';
 import LinkButton from '@molecules/LinkButton';
 import SelectUpdateType from '@molecules/SelectUpdateType';
 import UpdatePetAdoptedForm from '../UpdatePetAdoptedForm';
+import Paragraph from '@atoms/Paragraph';
 
 const UpdatePetList: React.FC = () => {
   const { cards, patch,get } = useContext(AppContext) as AppContextType;
-  const [type,setType] = useState<string>('age');
+  const [type,setType] = useState<string>('');
 
   const onChange = async (i: number,id:string) => {
     await patch('pets/patch/adopted',{ id,adopted: !cards[i].adopted });
@@ -21,13 +22,15 @@ const UpdatePetList: React.FC = () => {
   return(
     <Container className="list-pets-container">
       <SelectUpdateType setType={setType}/>
+      {!type && <Paragraph content='Please select one type!'/>}
       {cards.map((card,index) => (
       <Container className="cards-container">
         <LinkButton 
           key={index}
           petId={card.id}
           content={card.name}
-          disabled= {type === 'adopted'}
+          disabled= {type === 'adopted' || !type}
+          className="btn btn-dark"
           target={`/admin/update/${type}`}/>
         {type === 'adopted' && (
         <UpdatePetAdoptedForm 
