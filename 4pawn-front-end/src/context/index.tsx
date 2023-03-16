@@ -8,7 +8,7 @@ export const AppContext = React.createContext<AppContextType | null>(null);
 
 const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
   const [errors,setErrors] = useState<Error[]>([]);
-  const [user,setUser] = useState<User>({ username:'', role: '' });
+  const [user,setUser] = useState<User>({ username:'',email:'', role: '' });
   const [token,setToken] = useState<string>('');
   const [cards,setCards] = useState<Pets[]>([]);
   const [petId,setPetId] = useState<string>('');
@@ -17,9 +17,9 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     try{
       setErrors([]);
       if(endpoint.includes('users')) {
-        const { token, role } = await requestPost(endpoint, data);
+        const { token, role, email } = await requestPost(endpoint, data);
         setToken(token);
-        setUser({username: data.username, role});
+        setUser({username:data.username, email, role});
         tokenToApi(token);
         navigate('/home');
       }
@@ -40,6 +40,11 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
       setErrors([]);
       if(endpoint.includes('users')) {
         await requestUserPatch(endpoint, data);
+        if (data.email) {
+          setUser({...user,email: data.email})
+          navigate('/home');
+        };
+        if(data.password) navigate('/');
       }
       if(endpoint.includes('pets')) {
         tokenToApi(token);
@@ -53,7 +58,7 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
       const { response: { data } } = err;
       setErrors(errorHandler(data));
     }
-  },[petId, navigate,token]);
+  },[petId, navigate,token,setUser,user]);
   const get = async(endpoint:string): Promise<void> => {
     const { pets } = await requestGet(endpoint);
     setCards(pets);

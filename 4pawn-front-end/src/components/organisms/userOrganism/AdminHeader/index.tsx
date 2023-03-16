@@ -11,20 +11,23 @@ const AdminHeader: React.FC<AdminHeaderProps> = (
   { target, content }: AdminHeaderProps) => {
   const { user } = useContext(AppContext) as AppContextType;
   return(
-    <Container className="user-header">
-      <HeaderWithLogo content="4 Pawn"/>
-      <Paragraph content={`Hello ${user.username}`}/>
-      <LinkButton 
-        content={ content }
-        target={ target }
-        className="btn btn-dark"
-
-      />
-      <LinkButton 
-        content="Logout"
-        target='/'
-        className="btn btn-danger logout-button"
-      />
+    <Container className="navbar navbar-secondary bg-dark">
+      <HeaderWithLogo/>
+      <Container className='header-infos'>
+        <Paragraph content={`Hello ${user.email}`}/>
+        <Container className='buttons-container'>
+          <LinkButton 
+            content={ content }
+            target={ target }
+            className="btn btn-outline-primary"  
+          />
+          <LinkButton 
+            content="Logout"
+            target='/'
+            className="btn btn-outline-danger logout-button"
+          />
+        </Container>
+      </Container>
     </Container>
   );
 } 

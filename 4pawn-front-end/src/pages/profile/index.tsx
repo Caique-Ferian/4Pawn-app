@@ -8,8 +8,10 @@ const ProfilePage: React.FC = () => {
   return (
     <Container className="profile-page">
       <UserHeader content="Home" target="/home"/>
-      <UpdateEmailForm />
-      <UpdatePasswordForm />
+      <Container className="register-form">
+        <UpdateEmailForm />
+        <UpdatePasswordForm />
+      </Container>
     </Container>
   );
 }

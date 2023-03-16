@@ -3,8 +3,9 @@ import PropsParagraph from "./types";
 
 
 
-const Paragraph: React.FC<PropsParagraph> = ({content}:PropsParagraph) => {
-    return(<p>{content}</p>);
+const Paragraph: React.FC<PropsParagraph> = (
+    {content,className}:PropsParagraph) => {
+    return(<p className={className}>{content}</p>);
 }
 
 

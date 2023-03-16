@@ -11,14 +11,23 @@ const UserHeader: React.FC<PropsUserHeader> = (
   {content, target}: PropsUserHeader ) => {
   const { user } = useContext(AppContext) as AppContextType;
   return(
-    <Container className="user-header">
-      <HeaderWithLogo content="4 Pawn"/>
-      <Paragraph content={`Hello ${user.username}`}/>
-      <LinkButton 
-        content={ content ? content : 'Profile' }
-        target={ target ? target : "/profile" }
-      />
-      <LinkButton content="Logout" target='/'className="logout-button"/>
+    <Container className="navbar navbar-secondary bg-dark">
+      <HeaderWithLogo/>
+      <Container className="header-infos">
+        <Paragraph content={`Hello ${user.email}`}/>
+        <Container className="buttons-container">
+          <LinkButton 
+            content={ content ?? 'Profile' }
+            target={ target ?? "/profile" }
+            className="btn btn-outline-primary"
+            />
+          <LinkButton 
+            content="Logout"
+            target='/'
+            className="btn btn-outline-danger logout-button"
+            />
+        </Container>
+      </Container>
     </Container>
   );
 } 

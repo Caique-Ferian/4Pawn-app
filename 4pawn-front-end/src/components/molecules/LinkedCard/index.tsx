@@ -7,7 +7,7 @@ import PropsLinkedCard from "./types";
 const LinkedCard: React.FC<PropsLinkedCard> = (
   {target, children}: PropsLinkedCard) => {
     return(
-    <Container className="Linked-card">
+    <Container className="card card-container border-dark">
       <Link to={ target }>{children}</Link>
     </Container>
     );

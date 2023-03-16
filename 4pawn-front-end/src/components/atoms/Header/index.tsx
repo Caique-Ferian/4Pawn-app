@@ -3,7 +3,7 @@ import PropsHeader from "./types";
 
 
 const Header: React.FC<PropsHeader> = ({content}:PropsHeader) => {
-  return(<h1>{content}</h1>);
+  return(<h1 className="navbar-text">{content}</h1>);
 };
 
 

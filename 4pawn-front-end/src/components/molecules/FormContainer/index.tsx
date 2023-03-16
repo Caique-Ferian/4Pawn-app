@@ -11,9 +11,11 @@ const FormContainer: React.FC<FormProps> = ({ endpoint, children }:FormProps) =>
   const onSubmit: SubmitHandler<FormInfos> = async (data) => {
     if(endpoint.includes('users/patch')) {
       await patch(endpoint,{ ...data, username: user.username });
+      return;
     } 
     if(endpoint.includes('pets/patch')) {
       await patch(endpoint,data);
+      return;
     } else await post(endpoint, data);
   }
   const childrenWithProps = React.Children.map(children, (child) => {

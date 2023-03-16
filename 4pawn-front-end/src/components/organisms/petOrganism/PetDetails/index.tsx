@@ -12,20 +12,36 @@ import PetDetailsProps from "./types";
 const PetDetails: React.FC<PetDetailsProps> = (
   { name, ageInYears, weightInKg, color, image }: PetDetailsProps) => {
   return(
-    <Container className="pet-details">
+    <Container className="card card-container">
       <Title content={ name }/>
       <Image 
         src={ image }
-        width="600px"
-        height="600px"
+        className='card-img-top'
+        width=""
+        height="450px"
         alt={ name }
       />
-      <Paragraph content= {`Age in year(s): ${ ageInYears }`}/>
-      <Paragraph content= {`Weight in Kg(s): ${ weightInKg }`}/>
-      <Paragraph content= {`Breed/Color: ${ color }`}/>
-      <Container className="pet-details-buttons">
-        <Button type="button" content="Adopt" className="adopt-button"/>
-        <LinkButton content="Back" target="/home"/>
+      <Container className="card-body">
+        <Paragraph 
+          className='card-text'
+          content= {`Age: ${ ageInYears } Years(s)`}
+        />
+        <Paragraph 
+          className='card-text'
+          content= {`Weight: ${ weightInKg } Kg(s)`}
+        />
+        <Paragraph 
+          className='card-text'
+          content= {`Breed/Color: ${ color }`}
+        />
+        <Container className="details-buttons-container">
+          <Button type="button" content="Adopt" className="btn btn-success"/>
+          <LinkButton 
+            content="Back"
+            target="/home"
+            className="btn btn-danger"
+          />
+        </Container>
       </Container>
     </Container>
   );

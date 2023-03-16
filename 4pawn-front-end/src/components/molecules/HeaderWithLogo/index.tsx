@@ -1,18 +1,15 @@
 import React from "react";
-import Header from "@atoms/Header";
 import Image from "@atoms/Image";
-import PropsHeaderWithLogo from './types/index';
-import logo from './logo.png'
+import logo from './logo.svg'
 import Container from "@atoms/Container";
+import Link from "@atoms/Link";
 
-const HeaderWithLogo: React.FC<PropsHeaderWithLogo> = (
-  { content }: PropsHeaderWithLogo) => {
+const HeaderWithLogo: React.FC = () => {
     return(
-      <Container className="header-with-logo">
-        <Image src={logo} width="250px" height="80px" alt="4Pawn-logo" />
-        <Container className="header">
-          <Header  content={content}/>
-        </Container>
+      <Container className="navbar navbar-dark">
+        <Link to='/home' className="navbar-brand">
+          <Image src={logo} width="250px" alt="4Pawn-logo" />
+        </Link>
       </Container>
     );
 }

@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  padding: 0
+  padding: 0;
 }
 
 .login-page {
@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 40%;
-  margin-top: 15%;
+  margin-top: 10%;
   padding-left: 70px;
   padding-right: 70px;
   padding-bottom: 40px;
@@ -49,19 +49,30 @@
   font-family:monospace;
 }
 
-.header {
-  margin: 20px 600px;
+.buttons-container:nth-child(even) {
+  margin: 0;
+  padding-left: 50px;
+
 }
 
-.user-header {
-  align-items: center;
+.header-infos {
   display: flex;
-  justify-content: space-between;
-  box-shadow: 1px 1px 1px 1px darkslategrey;
-
+  align-items: center;
 }
+
+.header-infos p {
+  margin-top:15px;
+  color: white;
+}
+
 .logout-button {
   margin: 0px 30px;
+}
+
+.update-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .pet-buttons-container {
@@ -90,4 +101,37 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 20px;
+}
+
+.card-container {
+  margin: 2% 35%;
+  width: 30%;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+h2 {
+  display:flex;
+  justify-content: center;
+}
+
+p {
+  font-weight: 800;
+}
+
+.card-body p {
+  font-size: 20px;
+}
+
+.details-buttons-container {
+  display: flex;
+  margin: 20px 0px;
+  justify-content: space-evenly;
 }

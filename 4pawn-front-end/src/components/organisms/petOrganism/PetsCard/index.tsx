@@ -12,8 +12,9 @@ const PetCard: React.FC<CardsProps> = ({ name, image, index }: CardsProps) => {
       <Title content={ name }/>
       <Image 
         src={ image }
-        width="400px"
-        height="400px"
+        className='card-img-top'
+        width=""
+        height="450px"
         alt={ name }
       />
     </LinkedCard>
