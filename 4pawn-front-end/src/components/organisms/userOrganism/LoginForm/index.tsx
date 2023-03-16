@@ -35,14 +35,12 @@ const LoginForm: React.FC = () => {
         />
       { errors.map(({ type, message } ,i) => type === 'password'
         && <Paragraph key={i} content={ message }/>) }
-      <Container className='login-page-buttons'>
-        <Container className='login-button'>
-          <Button
-            content='Enter'
-            type='submit'
-            className='btn btn-dark'
-          />
-        </Container>
+      <Container className='user-buttons-container'>
+        <Button
+          content='Enter'
+          type='submit'
+          className='btn btn-dark login-button'
+        />
         <Button
           content='Register'
           type='button'

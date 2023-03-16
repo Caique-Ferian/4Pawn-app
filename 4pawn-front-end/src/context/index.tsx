@@ -24,16 +24,17 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
         navigate('/home');
       }
       if(endpoint.includes('pets')) {
+        tokenToApi(token);
         await requestPost(endpoint, data);
         await get(endpoint);
         navigate('/home');
       }
     } catch(err: any) {
       const { response: { data } } = err;
-      console.log(err);
+      console.log(data);
       setErrors(errorHandler(data));
     }
-  },[navigate]);
+  },[navigate,token]);
   const patch = useCallback( async (endpoint: string, data: FormInfos): Promise<void> => {
     try{
       setErrors([]);
@@ -41,6 +42,7 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
         await requestUserPatch(endpoint, data);
       }
       if(endpoint.includes('pets')) {
+        tokenToApi(token);
         if(data.id) await requestPetPatch(endpoint, data);
         else  {
           await requestPetPatch(endpoint, {...data, id: petId});
@@ -49,10 +51,9 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
       }
     } catch(err: any) {
       const { response: { data } } = err;
-      console.log(err);
       setErrors(errorHandler(data));
     }
-  },[petId, navigate]);
+  },[petId, navigate,token]);
   const get = async(endpoint:string): Promise<void> => {
     const { pets } = await requestGet(endpoint);
     setCards(pets);

@@ -14,8 +14,17 @@ const AdminHeader: React.FC<AdminHeaderProps> = (
     <Container className="user-header">
       <HeaderWithLogo content="4 Pawn"/>
       <Paragraph content={`Hello ${user.username}`}/>
-      <LinkButton content={ content } target={ target } />
-      <LinkButton content="Logout" target='/'className="logout-button"/>
+      <LinkButton 
+        content={ content }
+        target={ target }
+        className="btn btn-dark"
+
+      />
+      <LinkButton 
+        content="Logout"
+        target='/'
+        className="btn btn-danger logout-button"
+      />
     </Container>
   );
 } 

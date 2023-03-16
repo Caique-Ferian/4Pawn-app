@@ -9,7 +9,6 @@ const FormContainer: React.FC<FormProps> = ({ endpoint, children }:FormProps) =>
   const formHook = useForm<FormInfos>();
   const { post, patch, user } = useContext(AppContext) as AppContextType
   const onSubmit: SubmitHandler<FormInfos> = async (data) => {
-    console.log(data);
     if(endpoint.includes('users/patch')) {
       await patch(endpoint,{ ...data, username: user.username });
     } 

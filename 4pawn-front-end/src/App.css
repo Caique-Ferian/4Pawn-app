@@ -1,7 +1,7 @@
 .login-page {
-  border: 1px solid gray;
-  border-radius: 20px;
-  box-shadow: 5px 5px 10px 1px gray;
+  border: 2px solid gray;
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px 5px gray;
   display: flex;
   flex-direction: column;
   margin-left: 40%;
@@ -16,12 +16,45 @@
   margin: 50px 0;
 }
 
-.login-page-buttons {
+.user-buttons-container {
   display: flex;
   justify-content: center;
   margin-top: 20px;
 }
 
 .login-button {
-  padding-right: 10px;
+  margin-right: 40px;
+}
+
+.register-form {
+  border: 2px solid gray;
+  border-radius: 25px;
+  box-shadow: 5px 5px 10px 5px gray;
+  display: flex;
+  flex-direction: column;
+  margin-left: 40%;
+  margin-top: 15%;
+  padding: 70px 70px;
+  width: 25%;
+}
+
+.register-button {
+  margin-right: 60px;
+}
+
+.pet-buttons-container {
+  display: flex;
+  flex-direction: column;
+}
+.pet-button {
+  margin-bottom: 20px;
+}
+
+.register-pet-button {
+  margin-top: 10px;
+}
+
+.register-form:nth-child(even) {
+  margin-top:3%;
+  margin-bottom: 3%;
 }

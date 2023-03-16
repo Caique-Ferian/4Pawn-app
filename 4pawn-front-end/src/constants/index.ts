@@ -1,5 +1,5 @@
 const errorsTypes: string[] = ['username','password','fullname',
-'email','name','age','weight','color','image'];
+'email','name','ageinyears','weightinkg','color','image'];
 
 
 export default errorsTypes;

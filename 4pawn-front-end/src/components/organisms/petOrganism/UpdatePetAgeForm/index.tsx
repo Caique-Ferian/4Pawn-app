@@ -17,7 +17,7 @@ const UpdatePetAgeForm: React.FC = () => {
         placeholder='Age In years'
         formRegister='ageInYears'
       />
-      { errors.map(({ type,message }, i) => type === 'age'
+      { errors.map(({ type,message }, i) => type === 'ageinyears'
         && <Paragraph key={i} content={ message }/>) }
       <Button
         content='Update'

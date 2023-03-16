@@ -16,13 +16,13 @@ const LinkButton: React.FC<PropsLinkButton> = (
       navigate(target);
     }
     return(
-      <Container className= {className ?? "button"}>
+      <Container className= "button">
         <Button 
           type="button"
           onClick={goTo}
           disabled={disabled ?? false}
           content={content}
-          className='link-button'
+          className={ className ?? 'button' }
         />
       </Container>
     );

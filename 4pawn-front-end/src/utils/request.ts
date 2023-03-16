@@ -23,7 +23,6 @@ export const requestPost = async (endpoint: string, body: LoginBody | PetBody) =
     return data;
   }
   const { data } = await api.post(endpoint, body);
-  console.log(data);
   return data;
 }
 

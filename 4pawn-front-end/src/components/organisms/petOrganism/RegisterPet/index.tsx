@@ -11,7 +11,7 @@ const RegisterPet: React.FC = () => {
   return(
     <FormContainer endpoint='pets'>
       <UserOrPetInput
-        content='Pet Name: '
+        content='Pet Name'
         htmlFor='name-input'
         type='text'
         placeholder='Pet Name'
@@ -20,26 +20,26 @@ const RegisterPet: React.FC = () => {
       { errors.map(({ type,message }, i) => type === 'name'
         && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
-        content='Age In years: '
+        content='Age In years'
         htmlFor='age-input'
         type='number'
         placeholder='Age In years'
         formRegister='ageInYears'
       />
-      { errors.map(({ type,message }, i) => type === 'age'
+      { errors.map(({ type,message }, i) => type === 'ageinyears'
         && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
-        content='Weight in Kg: '
+        content='Weight in Kg'
         htmlFor='weight-input'
         type='number'
         placeholder='Weight in Kg'
         formRegister='weightInKg'
 
       />
-      { errors.map(({ type,message }, i) => type === 'weight'
+      { errors.map(({ type,message }, i) => type === 'weightinkg'
         && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
-        content='Color: '
+        content='Color'
         htmlFor='color-input'
         type='text'
         placeholder='Color'
@@ -49,7 +49,7 @@ const RegisterPet: React.FC = () => {
       { errors.map(({ type,message }, i) => type === 'color'
         && <Paragraph key={i} content={ message }/>) }
       <UserOrPetInput
-        content='Image: '
+        content='Image'
         htmlFor='image-input'
         type='text'
         placeholder='Image'
@@ -61,7 +61,7 @@ const RegisterPet: React.FC = () => {
       <Button
         content='Register'
         type='submit'
-        className='btn btn-primary'
+        className='btn btn-dark pet-button register-pet-button'
       />
     </FormContainer>
   );

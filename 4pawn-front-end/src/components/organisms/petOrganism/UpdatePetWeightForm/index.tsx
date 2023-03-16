@@ -18,7 +18,7 @@ const UpdatePetWeightForm: React.FC = () => {
         formRegister='weightInKg'
 
       />
-      { errors.map(({ type,message }, i) => type === 'weight'
+      { errors.map(({ type,message }, i) => type === 'weightinkg'
         && <Paragraph key={i} content={ message }/>) }
       <Button
         content='Update'

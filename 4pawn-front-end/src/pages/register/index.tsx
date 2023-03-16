@@ -4,7 +4,7 @@ import Container from '@atoms/Container/index';
 
 const RegisterPage: React.FC = () => {
   return(
-    <Container className="register-page">
+    <Container className="register-form">
       <RegisterForm />
     </Container>
   );
