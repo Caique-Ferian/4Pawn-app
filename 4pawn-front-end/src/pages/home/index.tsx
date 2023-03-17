@@ -21,13 +21,13 @@ const HomePage: React.FC = () => {
           content='Pets'
           target='/admin' 
         />) : <UserHeader/>}
-      {cards.map(({ name,image },i) =>
+      {cards.map(({ name,image,adopted },i) => !adopted && (
         <PetCard 
           key={ i }
           name={ name }
           image={ image }
           index={ i }
-        />)}
+        />))}
     </Container>
   );
 };

@@ -10,15 +10,16 @@ import AdminHeader from '@organisms/userOrganism/AdminHeader';
 const PetDetailsPage: React.FC = () => {
   const { cards, user } = useContext(AppContext) as AppContextType;
   const { id } = useParams();
-  const { name, ageInYears, weightInKg, color, image } = cards[+(id as string)];
+  const { name, ageInYears, weightInKg, color, image, } = cards[+(id as string)];
   return(
     <Container className="pet-details-page">
       {user.role === 'admin' ? (
         <AdminHeader
-          content='Home'
-          target='/home' 
+          content='Pets'
+          target='/admin' 
         />) : <UserHeader/>}
       <PetDetails 
+        id={cards[+(id as string)].id}
         name={ name }
         ageInYears={ ageInYears }
         weightInKg= { weightInKg }
