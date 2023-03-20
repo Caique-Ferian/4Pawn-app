@@ -1,15 +1,14 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
 import { Strategy, ExtractJwt } from 'passport-jwt';
-import { JWT_SECRET } from '@infra/auth/constants/jwt.constants';
-
+import Envs from '@src/config/config.service';
 @Injectable()
 export default class JwtStrategy extends PassportStrategy(Strategy) {
   constructor() {
     super({
       jwtFromRequest: ExtractJwt.fromHeader('authorization'),
       ignoreExpiration: false,
-      secretOrKey: JWT_SECRET,
+      secretOrKey: Envs.jwtSecret(),
     });
   }
 

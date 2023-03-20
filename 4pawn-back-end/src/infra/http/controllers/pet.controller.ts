@@ -71,7 +71,6 @@ export class PetController {
     return { pet: PetViewModule.toHTTP(pet) };
   }
 
-  @UseGuards(JwtAuthGuard)
   @Patch('patch/adopted')
   async patchAdopted(
     @Body() body: PatchPetAdoptedBody,

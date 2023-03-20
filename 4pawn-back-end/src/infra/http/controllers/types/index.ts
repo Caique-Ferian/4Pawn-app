@@ -3,6 +3,7 @@ import { Request } from 'express';
 
 interface TokenAndRole {
   role: string;
+  email: string;
   token: string;
 }
 
@@ -12,6 +13,7 @@ export interface LoginUserRequest extends Request {
 
 export interface LoginUserResponse {
   token: string;
+  email: string;
   role: string;
 }
 

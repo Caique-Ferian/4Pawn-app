@@ -1,7 +1,7 @@
 import {
   Length,
   ValidationArguments,
-  IsNumber,
+  IsPositive,
   IsNotEmpty,
 } from 'class-validator';
 
@@ -17,15 +17,9 @@ export default class CreatePetBody {
   })
   name: string;
 
-  @IsNumber(
-    {},
-    {
-      message: (args: ValidationArguments) => {
-        if (!args.value) return 'AgeInYears field must be filled.';
-        return `${args.value} is not a valid number of age.`;
-      },
-    },
-  )
+  @IsPositive({
+    message: 'AgeInYears field must be filled with a positive number.',
+  })
   ageInYears: number;
 
   @IsNotEmpty({
@@ -33,15 +27,9 @@ export default class CreatePetBody {
   })
   image: string;
 
-  @IsNumber(
-    {},
-    {
-      message: (args: ValidationArguments) => {
-        if (!args.value) return 'weightInKg field must be filled.';
-        return `${args.value} is not a valid number of weight.`;
-      },
-    },
-  )
+  @IsPositive({
+    message: 'WeightInKg field must be filled with a positive number.',
+  })
   weightInKg: number;
 
   @Length(4, 20, {

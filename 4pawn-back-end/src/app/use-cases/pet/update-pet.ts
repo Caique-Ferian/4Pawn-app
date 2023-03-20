@@ -49,7 +49,7 @@ export default class UpdatePet {
         hasPet.id,
       );
     }
-    if (adopted) {
+    if (adopted || adopted === false) {
       updatedPet = new Pet(
         {
           name: hasPet.name,

@@ -29,7 +29,7 @@ module.exports = {
         name: 'Lina',
         age_in_years: 3,
         image:
-          'https://recursos.tudodebicho.com.br/i/guiaderacas/gato-siames/gato-siames-jovem.jpg',
+          'https://www.petlove.com.br/images/breeds/192825/profile/original/siames-p.jpg?1532626975',
         weight_in_kg: 4,
         color: 'siamese',
         adopted: false,

@@ -1,11 +1,11 @@
 import { Options } from 'sequelize';
-
+import Envs from '@src/config/config.service';
 export const databaseConfig: Options = {
-  username: 'root',
-  password: '123456',
+  username: Envs.database().username,
+  password: Envs.database().password,
   database: '4pawn_db',
-  host: 'localhost',
-  port: 3306,
+  host: Envs.database().host,
+  port: Envs.database().port,
   dialect: 'mysql',
   dialectOptions: {
     timezone: 'Z',

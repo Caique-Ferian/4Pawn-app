@@ -22,13 +22,13 @@ services:
     ports:
       - 3001:3001
     platform: linux/x86_64
-    working_dir: /4pawn-backend
+    working_dir: /usr/src/app
     depends_on:
       db:
         condition: service_healthy
     environment:
       - APP_PORT=3001
-      - JWT_SECRET=jwt_secret
+      - JWT_SECRET=JWT_SECRET
       - DB_USER=root
       - DB_PASS=123456
       - DB_HOST=db
