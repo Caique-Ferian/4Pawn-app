@@ -17,9 +17,9 @@ const AppProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     try{
       setErrors([]);
       if(endpoint.includes('users')) {
-        const { token, role, email } = await requestPost(endpoint, data);
+        const { token, role, email,user } = await requestPost(endpoint, data);
         setToken(token);
-        setUser({username:data.username, email, role});
+        setUser({username:data.username, email: user.email ?? email, role});
         tokenToApi(token);
         navigate('/home');
       }
